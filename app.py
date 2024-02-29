@@ -24,6 +24,9 @@ if tab == "Local file":
 	if uploaded_file is None:
 		st.info("Upload a .csv or .xlsx spreadsheet file to continue", icon="ℹ️")
 	if uploaded_file is not None:
+		df = pd.read_csv(file, encoding='latin-1')
+		df = SmartDataframe(df, config={"llm": llm})
+		df.chat('Which are the 5 happiest countries?')
 		st.write("Not Null")
 
 elif tab == "Google sheets":
