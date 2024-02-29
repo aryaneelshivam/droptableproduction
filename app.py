@@ -24,7 +24,7 @@ if tab == "Local file":
 	if uploaded_file is None:
 		st.info("Upload a .csv or .xlsx spreadsheet file to continue", icon="ℹ️")
 	if uploaded_file is not None:
-		df = pd.read_csv(file, encoding='latin-1')
+		df = pd.read_csv(uploaded_file, encoding='latin-1')
 		df = SmartDataframe(df, config={"llm": llm})
 		ans = df.chat('Which are the 5 countries? via sales')
 		st.write(ans)
