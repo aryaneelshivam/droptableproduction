@@ -2,3 +2,4 @@ streamlit
 streamlit-shadcn-ui
 llama-index
 pandasai
+pandas
