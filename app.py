@@ -3,12 +3,15 @@ import pandas as pd
 import streamlit_shadcn_ui as ui
 from local_components import card_container 
 from pandasai import SmartDataframe
+from pandasai.llm import OpenAI
 
 
 st.set_page_config(
     page_title="DropTable",
     page_icon="💧"
 )
+
+llm = OpenAI(api_token="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")
 
 st.title(":blue[Drop]Table")
 tab = ui.tabs(options=['Local file', 'Google sheets', 'Airtable', 'Snowflake'], default_value='Local file', key="select")
