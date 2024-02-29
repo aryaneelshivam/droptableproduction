@@ -26,7 +26,7 @@ if tab == "Local file":
 	if uploaded_file is not None:
 		df = pd.read_csv(uploaded_file, encoding='latin-1')
 		df = SmartDataframe(df, config={"llm": llm})
-		ans = df.chat('Which are the 5 countries? via sales')
+		ans = df.chat('What is this dadatset about?')
 		st.write(ans)
 
 elif tab == "Google sheets":
