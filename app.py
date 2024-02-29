@@ -9,8 +9,8 @@ st.set_page_config(
 )
 
 st.title(":blue[Drop]Table")
-tab = ui.tabs(options=['Local file', 'Google sheets', 'Airtable', 'Snowflak'], default_value='Local file', key="select")
-if tab == "Analysis":
+tab = ui.tabs(options=['Local file', 'Google sheets', 'Airtable', 'Snowflake'], default_value='Local file', key="select")
+if tab == "Local file":
 
 	with card_container():
 		uploaded_file = st.file_uploader("Choose a file 📂", type=["csv","XLSX"])
@@ -21,10 +21,10 @@ if tab == "Analysis":
 	if uploaded_file is not None:
 		st.write("Not Null")
 
-elif tab == "Chat":
+elif tab == "Google sheets":
 	st.write("Chat")
-elif tab == "Vision":
+elif tab == "Airtable":
 	st.write("Vision")
 elif tab == "Manual":
-	st.write("Manual")
+	st.write("Snowflake")
 
