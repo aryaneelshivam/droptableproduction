@@ -18,7 +18,7 @@ tab = ui.tabs(options=['Local file', 'Google sheets', 'Airtable', 'Snowflake'], 
 if tab == "Local file":
 
 	with card_container():
-		uploaded_file = st.file_uploader("Choose a file 📂", type=["csv","XLSX"])
+		uploaded_file = st.file_uploader("Choose a file 📂", type=["csv"])
 
 	#Check is file is uploaded or not
 	if uploaded_file is None:
