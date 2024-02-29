@@ -11,7 +11,7 @@ st.set_page_config(
     page_icon="💧"
 )
 
-llm = OpenAI(api_token="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")
+llm = OpenAI(api_token="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")
 
 st.title(":blue[Drop]Table")
 tab = ui.tabs(options=['Local file', 'Google sheets', 'Airtable', 'Snowflake'], default_value='Local file', key="select")
