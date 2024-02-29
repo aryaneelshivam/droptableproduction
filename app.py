@@ -26,8 +26,10 @@ if tab == "Local file":
 	if uploaded_file is not None:
 		df = pd.read_csv(uploaded_file, encoding='latin-1')
 		df = SmartDataframe(df, config={"llm": llm})
-		ans = df.chat('What is this dadatset about?')
-		st.write(ans)
+		with st.spinner:
+			ans = df.chat('What is this dadatset about?')
+			with card_container():
+				st.write(ans)
 
 elif tab == "Google sheets":
 	st.write("Chat")
