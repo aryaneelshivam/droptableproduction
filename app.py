@@ -27,9 +27,11 @@ if tab == "Local file":
 		df = pd.read_csv(uploaded_file, encoding='latin-1')
 		df = SmartDataframe(df, config={"llm": llm})
 		with st.spinner("Generating Summary..."):
-			ans = df.chat('What is this about? List valuable insights, write a summary')
-			with card_container():
-				st.write(ans)
+			user = st.text_input('Ask question...')
+			if user:
+				ans = df.chat(user)
+				with card_container():
+					st.write(ans)
 
 elif tab == "Google sheets":
 	st.write("Chat")
