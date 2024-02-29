@@ -27,7 +27,7 @@ if tab == "Local file":
 		df = pd.read_csv(uploaded_file, encoding='latin-1')
 		df = SmartDataframe(df, config={"llm": llm})
 		with st.spinner("Generating Summary..."):
-			ans = df.chat('What are the vlauable insights that can be driven out?')
+			ans = df.chat('Write a detailes report about the insights that can be driven out')
 			with card_container():
 				st.write(ans)
 
