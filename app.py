@@ -26,8 +26,8 @@ if tab == "Local file":
 	if uploaded_file is not None:
 		df = pd.read_csv(file, encoding='latin-1')
 		df = SmartDataframe(df, config={"llm": llm})
-		df.chat('Which are the 5 happiest countries?')
-		st.write("Not Null")
+		ans = df.chat('Which are the 5 countries? via sales')
+		st.write(ans)
 
 elif tab == "Google sheets":
 	st.write("Chat")
