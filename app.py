@@ -1,6 +1,8 @@
 import streamlit as st
+import pandas as pd
 import streamlit_shadcn_ui as ui
 from local_components import card_container 
+from pandasai import SmartDataframe
 
 
 st.set_page_config(
