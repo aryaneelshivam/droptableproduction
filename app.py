@@ -40,7 +40,7 @@ if tab == "Local file":
 			with st.spinner("Generating Summary..."):
 				response = query_engine.query(user)
 				with card_container():
-					st.write(display(Markdown(f"<b>{response}</b>"))
+					st.markdown(user)
 )
 		
 elif tab == "Google sheets":
