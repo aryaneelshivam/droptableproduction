@@ -41,7 +41,6 @@ if tab == "Local file":
 				response = query_engine.query(user)
 				with card_container():
 					st.markdown(user)
-)
 		
 elif tab == "Google sheets":
 	st.write("Chat")
