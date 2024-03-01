@@ -3,3 +3,7 @@ streamlit-shadcn-ui
 llama-index
 pandasai
 pandas
+llama-index-core
+llama-index-llms-openai
+llama-index-llms-replicate
+llama-index-embeddings-huggingface
