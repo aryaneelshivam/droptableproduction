@@ -9,6 +9,7 @@ from llama_index.core.query_engine import PandasQueryEngine
 from llama_index.llms.openai import OpenAI
 from llama_index.core import SimpleDirectoryReader
 import openai
+from IPython.display import Markdown, display
 #from prompts import new_prompt, instruction_str, context
 
 
