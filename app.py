@@ -34,12 +34,7 @@ if tab == "Local file":
 	if uploaded_file is not None:
 		# Llama-index Queryt Engine
 		df = pd.read_csv(uploaded_file, encoding='latin-1')
-		query_engine = PandasQueryEngine(df=df, verbose=True, synthesize_response=True, instruction_str="""\
-    1. Convert the query to executable Python code using Pandas.
-    2. The final line of code should be a Python expression that can be called with the `eval()` function.
-    3. The code should represent a solution to the query.
-    4. PRINT ONLY THE EXPRESSION.
-    5. Do not quote the expression.""" )
+		query_engine = PandasQueryEngine(df=df, verbose=True, synthesize_response=True)
 		user = st.text_input('Ask question...')
 		if user:
 			with st.spinner("Generating Summary..."):
