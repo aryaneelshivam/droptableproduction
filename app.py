@@ -3,7 +3,10 @@ import pandas as pd
 import streamlit_shadcn_ui as ui
 from local_components import card_container 
 #from pandasai import SmartDataframe
-from pandasai.llm import OpenAI
+#from pandasai.llm import OpenAI
+from llama_index.tools import QueryEngineTool, ToolMetadata
+from llama_index.agent import ReActAgent
+from llama_index.llms import OpenAI
 from llama_index.query_engine import PandasQueryEngine
 from prompts import new_prompt, instruction_str, context
 
