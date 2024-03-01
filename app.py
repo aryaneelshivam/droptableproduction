@@ -5,6 +5,7 @@ from local_components import card_container
 #from pandasai import SmartDataframe
 #from pandasai.llm import OpenAI
 from llama_index.core import VectorStoreIndex, ServiceContext, Document
+from llama_index.core.query_engine import PandasQueryEngine
 from llama_index.llms.openai import OpenAI
 from llama_index.core import SimpleDirectoryReader
 import openai
@@ -29,13 +30,11 @@ if tab == "Local file":
 	if uploaded_file is not None:
 		# Llama-index Queryt Engine
 		df = pd.read_csv(uploaded_file, encoding='latin-1')
-		documents = [Document(record) for record in df.to_dict('records')]
-		index = VectorStoreIndex.from_documents(documents)
-		query_engine = index.as_query_engine()
+		query_engine = PandasQueryEngine(df=df)
 		user = st.text_input('Ask question...')
 		if user:
 			with st.spinner("Generating Summary..."):
-				ans = query_engine.query(user)
+				response = query_engine.query(user)
 				with card_container():
 					st.write(ans)
 		
