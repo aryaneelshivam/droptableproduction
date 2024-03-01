@@ -19,24 +19,25 @@ if tab == "Local file":
 
 	with card_container():
 		uploaded_file = st.file_uploader("Choose a file 📂", type=["csv"])
-
-	#Check is file is uploaded or not
-	if uploaded_file is None:
-		st.info("Upload a .csv or .xlsx spreadsheet file to continue", icon="ℹ️")
-	if uploaded_file is not None:
-		df = pd.read_csv(uploaded_file, encoding='latin-1')
-		df = SmartDataframe(df, config={"llm": llm})
-		user = st.text_input('Ask question...')
-		if user:
-			with st.spinner("Generating Summary..."):
-				ans = df.chat(user)
-				with card_container():
-					st.write(ans)
-
+		
 elif tab == "Google sheets":
 	st.write("Chat")
 elif tab == "Airtable":
 	st.write("Vision")
 elif tab == "Manual":
 	st.write("Snowflake")
+
+	#Check is file is uploaded or not
+if uploaded_file is None:
+	st.info("Upload a .csv or .xlsx spreadsheet file to continue", icon="ℹ️")
+if uploaded_file is not None:
+	df = pd.read_csv(uploaded_file, encoding='latin-1')
+	df = SmartDataframe(df, config={"llm": llm})
+	user = st.text_input('Ask question...')
+	if user:
+		with st.spinner("Generating Summary..."):
+			ans = df.chat(user)
+			with card_container():
+				st.write(ans)
+
 
