@@ -7,6 +7,7 @@ from local_components import card_container
 from llama_index.core import VectorStoreIndex, ServiceContext, Document
 from llama_index.llms.openai import OpenAI
 from llama_index.core import SimpleDirectoryReader
+import openai
 
 st.set_page_config(
     page_title="DropTable",
