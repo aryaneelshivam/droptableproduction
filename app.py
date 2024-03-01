@@ -45,7 +45,8 @@ if tab == "Local file":
 			with st.spinner("Generating Summary..."):
 				response = query_engine.query(user)
 				with card_container():
-					st.write(response)
+					st.write(display(Markdown(f"<b>{response}</b>"))
+)
 		
 elif tab == "Google sheets":
 	st.write("Chat")
