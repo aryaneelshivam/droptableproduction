@@ -4,9 +4,9 @@ import streamlit_shadcn_ui as ui
 from local_components import card_container 
 #from pandasai import SmartDataframe
 #from pandasai.llm import OpenAI
-from llama_index import VectorStoreIndex, SimpleDirectoryReader
-from llama_index.llms import OpenAI
-
+from llama_index.core import VectorStoreIndex, ServiceContext, Document
+from llama_index.llms.openai import OpenAI
+from llama_index.core import SimpleDirectoryReader
 
 st.set_page_config(
     page_title="DropTable",
