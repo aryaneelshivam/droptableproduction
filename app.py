@@ -27,7 +27,7 @@ if tab == "Local file":
 	if uploaded_file is not None:
 		# Llama-index Queryt Engine
 		df = pd.read_csv(uploaded_file, encoding='latin-1')
-		index = VectorStoreIndex.from_documents(df)
+		index = VectorStoreIndex.from_documents(uploaded_file)
 		query_engine = index.as_query_engine()
 		user = st.text_input('Ask question...')
 		if user:
