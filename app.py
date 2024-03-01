@@ -4,11 +4,8 @@ import streamlit_shadcn_ui as ui
 from local_components import card_container 
 #from pandasai import SmartDataframe
 #from pandasai.llm import OpenAI
-from llama_index.tools import QueryEngineTool, ToolMetadata
-from llama_index.agent import ReActAgent
+from llama_index import VectorStoreIndex, SimpleDirectoryReader
 from llama_index.llms import OpenAI
-from llama_index.query_engine import PandasQueryEngine
-from prompts import new_prompt, instruction_str, context
 
 
 st.set_page_config(
@@ -30,12 +27,12 @@ if tab == "Local file":
 	if uploaded_file is not None:
 		# Llama-index Queryt Engine
 		df = pd.read_csv(uploaded_file, encoding='latin-1')
-		queryengine = PandasQueryEngine(df=df, instruction_str=instruction_str)
-		queryengine.update_prompts({"pandas_prompt": new_prompt})
+		index = VectorStoreIndex.from_documents(df)
+		query_engine = index.as_query_engine()
 		user = st.text_input('Ask question...')
 		if user:
 			with st.spinner("Generating Summary..."):
-				ans = queryengine.query(user)
+				ans = query_engine.query(user)
 				with card_container():
 					st.write(ans)
 		
