@@ -36,7 +36,7 @@ if tab == "Local file":
 			with st.spinner("Generating Summary..."):
 				response = query_engine.query(user)
 				with card_container():
-					st.write(ans)
+					st.write(response)
 		
 elif tab == "Google sheets":
 	st.write("Chat")
