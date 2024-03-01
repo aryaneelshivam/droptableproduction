@@ -4,11 +4,12 @@ import streamlit_shadcn_ui as ui
 from local_components import card_container 
 from pandasai import SmartDataframe
 from pandasai.llm import OpenAI
+from llama_index.query_engine import PandasQueryEngine
 
 
 st.set_page_config(
     page_title="DropTable",
-    page_icon="💧"
+    page_icon="🐻"
 )
 
 llm = OpenAI(api_token=st.secrets["OpenAI_Key"])
@@ -20,17 +21,18 @@ if tab == "Local file":
 	with card_container():
 		uploaded_file = st.file_uploader("Choose a file 📂", type=["csv"])
 		#Check is file is uploaded or not
-		if uploaded_file is None:
-			st.info("Upload a .csv or .xlsx spreadsheet file to continue", icon="ℹ️")
-		if uploaded_file is not None:
-			df = pd.read_csv(uploaded_file, encoding='latin-1')
-			df = SmartDataframe(df, config={"llm": llm})
-			user = st.text_input('Ask question...')
-			if user:
-				with st.spinner("Generating Summary..."):
-					ans = df.chat(user)
-					with card_container():
-						st.write(ans)
+	if uploaded_file is None:
+		st.info("Upload a .csv or .xlsx spreadsheet file to continue", icon="ℹ️")
+	if uploaded_file is not None:
+		# Llama-index Queryt Engine
+		df = pd.read_csv(uploaded_file, encoding='latin-1')
+		queryengine = PandasQueryEngine(df=df)
+		user = st.text_input('Ask question...')
+		if user:
+			with st.spinner("Generating Summary..."):
+				ans = df.chat(user)
+				with card_container():
+					st.write(ans)
 		
 elif tab == "Google sheets":
 	st.write("Chat")
