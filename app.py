@@ -5,6 +5,7 @@ from local_components import card_container
 from pandasai import SmartDataframe
 from pandasai.llm import OpenAI
 from llama_index.query_engine import PandasQueryEngine
+from prompts import new_prompt, instruction_str, context
 
 
 st.set_page_config(
@@ -26,11 +27,12 @@ if tab == "Local file":
 	if uploaded_file is not None:
 		# Llama-index Queryt Engine
 		df = pd.read_csv(uploaded_file, encoding='latin-1')
-		queryengine = PandasQueryEngine(df=df)
+		queryengine = PandasQueryEngine(df=df, instruction_str=instruction_str)
+		queryengine.update_prompts({"pandas_prompt": new_prompt})
 		user = st.text_input('Ask question...')
 		if user:
 			with st.spinner("Generating Summary..."):
-				ans = df.chat(user)
+				ans = queryengine.query(user)
 				with card_container():
 					st.write(ans)
 		
