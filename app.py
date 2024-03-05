@@ -16,13 +16,48 @@ from IPython.display import Markdown, display
 
 st.set_page_config(
     page_title="DropTable",
-    page_icon="🐻"
+    page_icon="🐻",
+    initial_sidebar_state="expanded",
 )
 
 llm = OpenAI(api_token=st.secrets["OpenAI_Key"])
 openai.api_key = st.secrets["OpenAI_Key"]
 
 st.title(":blue[Drop]Table")
+
+#header ke niche
+col1, col2 = st.columns(2)
+with col1:
+	with st.expander("👆 Select your desired tone of output."):
+		st.write("Sample")
+
+with col2:
+	with st.expander("🔗 Connect your data to a data source."):
+		st.write("Sample")
+col3, col4 = st.columns(2)
+with col3:
+	with st.expander("🔍 Ask questions and query out results."):
+		st.write("Sample")
+with col4:
+	with st.expander("👀 Analyse charts and graphs visually."):
+		st.write("Sample")
+
+st.sidebar.write("Use DropTables' highly customized and fine-tuned **Generative-AI** features to build data analytics visualization dashboards.")
+
+#Select temperature of GoogleGenAI
+tabselect = ui.tabs(options=['Creative', 'Medium', 'Precise'], default_value='Medium', key="temperature")
+if tabselect == "Creative":
+	temp = 0.8
+elif tabselect == "Medium":
+	temp = 0.5
+elif tabselect == "Precise":
+	temp = 0.2
+	
+#sidebar initial elements
+title = st.sidebar.text_input('Enter your use-key', placeholder="Enter your private use-key",key="placeholder", type="password")
+buybutton = st.sidebar.link_button("Get your Key", "https://teenscript.substack.com/", type="primary", help="Purchase your private use-key to work with droptable.", use_container_width=True)
+st.sidebar.caption('If you dont have a private use-key, then get one and keep it safe.')
+
 tab = ui.tabs(options=['Local file', 'Google sheets', 'Airtable', 'Snowflake'], default_value='Local file', key="select")
 if tab == "Local file":
 
