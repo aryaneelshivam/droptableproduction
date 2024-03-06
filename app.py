@@ -71,11 +71,34 @@ if tab == "Local file":
 		df = pd.read_csv(uploaded_file, encoding='latin-1')
 		
 elif tab == "Google sheets":
-	st.write("Chat")
+	with card_container():
+		uploaded_file = st.file_uploader("Choose a file 📂", type=["csv"])
+		#Check is file is uploaded or not
+	if uploaded_file is None:
+		st.info("Upload a .csv or .xlsx spreadsheet file to continue", icon="ℹ️")
+	if uploaded_file is not None:
+		# Llama-index Queryt Engine
+		df = pd.read_csv(uploaded_file, encoding='latin-1')
+
 elif tab == "Airtable":
-	st.write("Vision")
+	with card_container():
+		uploaded_file = st.file_uploader("Choose a file 📂", type=["csv"])
+		#Check is file is uploaded or not
+	if uploaded_file is None:
+		st.info("Upload a .csv or .xlsx spreadsheet file to continue", icon="ℹ️")
+	if uploaded_file is not None:
+		# Llama-index Queryt Engine
+		df = pd.read_csv(uploaded_file, encoding='latin-1')
+		
 elif tab == "Manual":
-	st.write("Snowflake")
+	with card_container():
+		uploaded_file = st.file_uploader("Choose a file 📂", type=["csv"])
+		#Check is file is uploaded or not
+	if uploaded_file is None:
+		st.info("Upload a .csv or .xlsx spreadsheet file to continue", icon="ℹ️")
+	if uploaded_file is not None:
+		# Llama-index Queryt Engine
+		df = pd.read_csv(uploaded_file, encoding='latin-1')
 
 query_engine = PandasQueryEngine(df=df, verbose=True, synthesize_response=True)
 user = st.text_input('Ask question...')
