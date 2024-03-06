@@ -80,7 +80,7 @@ if tab == "Local file":
 		df = pd.read_csv(uploaded_file, encoding='latin-1')
 		query_engine = PandasQueryEngine(df=df, verbose=True, synthesize_response=True)
 		with st.spinner("Generating Summary..."):
-			response = query_engine.query("List down point wise all possible types of relationships and correlations that can be driven out of the dataset in detail.")
+			response = query_engine.query("List down point wise all possible types of relationships and correlations that can be driven out of the dataset in detail with explanations and examples.")
 			with card_container():
 				st.markdown(response)
 		
