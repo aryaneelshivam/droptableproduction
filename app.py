@@ -69,41 +69,20 @@ if tab == "Local file":
 	if uploaded_file is not None:
 		# Llama-index Queryt Engine
 		df = pd.read_csv(uploaded_file, encoding='latin-1')
+		query_engine = PandasQueryEngine(df=df, verbose=True, synthesize_response=True)
+		user = st.text_input('Ask question...')
+		if user:
+			with st.spinner("Generating Summary..."):
+				response = query_engine.query(user)
+				with card_container():
+					st.markdown(response)
 		
 elif tab == "Google sheets":
-	with card_container():
-		uploaded_file = st.file_uploader("Choose a file 📂", type=["csv"])
-		#Check is file is uploaded or not
-	if uploaded_file is None:
-		st.info("Upload a .csv or .xlsx spreadsheet file to continue", icon="ℹ️")
-	if uploaded_file is not None:
-		# Llama-index Queryt Engine
-		df = pd.read_csv(uploaded_file, encoding='latin-1')
+	st.write("Google Sheets")
 
 elif tab == "Airtable":
-	with card_container():
-		uploaded_file = st.file_uploader("Choose a file 📂", type=["csv"])
-		#Check is file is uploaded or not
-	if uploaded_file is None:
-		st.info("Upload a .csv or .xlsx spreadsheet file to continue", icon="ℹ️")
-	if uploaded_file is not None:
-		# Llama-index Queryt Engine
-		df = pd.read_csv(uploaded_file, encoding='latin-1')
+	st.write("Airtable")
 		
 elif tab == "Snowflake":
-	with card_container():
-		uploaded_file = st.file_uploader("Choose a file 📂", type=["csv"])
-		#Check is file is uploaded or not
-	if uploaded_file is None:
-		st.info("Upload a .csv or .xlsx spreadsheet file to continue", icon="ℹ️")
-	if uploaded_file is not None:
-		# Llama-index Queryt Engine
-		df = pd.read_csv(uploaded_file, encoding='latin-1')
+	st.write("Snowflake")
 
-query_engine = PandasQueryEngine(df=df, verbose=True, synthesize_response=True)
-user = st.text_input('Ask question...')
-if user:
-	with st.spinner("Generating Summary..."):
-		response = query_engine.query(user)
-		with card_container():
-			st.markdown(response)
