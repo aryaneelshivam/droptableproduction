@@ -25,7 +25,7 @@ llm = OpenAI(api_token=st.secrets["OpenAI_Key"])
 openai.api_key = st.secrets["OpenAI_Key"]
 
 instruction1 = """\ 
-	1. Write down all relationships that can be driven out point wise
+	1. Write down all relationships that can be driven out point wise in very detail.
 """
 
 st.title(":blue[Drop]Table")
@@ -84,7 +84,7 @@ if tab == "Local file":
 		df = pd.read_csv(uploaded_file, encoding='latin-1')
 		query_engine = PandasQueryEngine(df=df, verbose=True, synthesize_response=True, instruction_str=instruction1)
 		with st.spinner("Generating Summary..."):
-			response = query_engine.query("List down, point wise all possible types of relationships that can be built and driven out of the dataset.")
+			response = query_engine.query("List down, point wise all possible types of relationships that can be built out of the dataset.")
 			with card_container():
 				st.markdown(response)
 		
