@@ -24,6 +24,10 @@ st.set_page_config(
 llm = OpenAI(api_token=st.secrets["OpenAI_Key"])
 openai.api_key = st.secrets["OpenAI_Key"]
 
+instruction1 = """\ 
+	1. Write down all relationships that can be driven out point wise
+"""
+
 st.title(":blue[Drop]Table")
 
 #header ke niche
@@ -78,13 +82,11 @@ if tab == "Local file":
 	if uploaded_file is not None:
 		# Llama-index Queryt Engine
 		df = pd.read_csv(uploaded_file, encoding='latin-1')
-		query_engine = PandasQueryEngine(df=df, verbose=True, synthesize_response=True)
-		user = st.text_input('Ask question...')
-		if user:
-			with st.spinner("Generating Summary..."):
-				response = query_engine.query(user)
-				with card_container():
-					st.markdown(response)
+		query_engine = PandasQueryEngine(df=df, verbose=True, synthesize_response=True, instruction_str=instruction1)
+		with st.spinner("Generating Summary..."):
+			response = query_engine.query("List down, point wise all possible types of relationships that can be built and driven out of the dataset.")
+			with card_container():
+				st.markdown(response)
 		
 elif tab == "Google sheets":
 	st.write("Google Sheets")
