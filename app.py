@@ -78,9 +78,9 @@ elif tab == "Manual":
 	st.write("Snowflake")
 
 query_engine = PandasQueryEngine(df=df, verbose=True, synthesize_response=True)
-		user = st.text_input('Ask question...')
-		if user:
-			with st.spinner("Generating Summary..."):
-				response = query_engine.query(user)
-				with card_container():
-					st.markdown(response)
+user = st.text_input('Ask question...')
+if user:
+	with st.spinner("Generating Summary..."):
+		response = query_engine.query(user)
+		with card_container():
+			st.markdown(response)
