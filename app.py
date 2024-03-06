@@ -69,13 +69,6 @@ if tab == "Local file":
 	if uploaded_file is not None:
 		# Llama-index Queryt Engine
 		df = pd.read_csv(uploaded_file, encoding='latin-1')
-		query_engine = PandasQueryEngine(df=df, verbose=True, synthesize_response=True)
-		user = st.text_input('Ask question...')
-		if user:
-			with st.spinner("Generating Summary..."):
-				response = query_engine.query(user)
-				with card_container():
-					st.markdown(response)
 		
 elif tab == "Google sheets":
 	st.write("Chat")
@@ -84,3 +77,10 @@ elif tab == "Airtable":
 elif tab == "Manual":
 	st.write("Snowflake")
 
+query_engine = PandasQueryEngine(df=df, verbose=True, synthesize_response=True)
+		user = st.text_input('Ask question...')
+		if user:
+			with st.spinner("Generating Summary..."):
+				response = query_engine.query(user)
+				with card_container():
+					st.markdown(response)
