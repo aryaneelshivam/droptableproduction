@@ -90,11 +90,11 @@ if tab == "Local file":
 			response2 = query_engine.query("Summarize the entire dataset")
 			response1 = query_engine.query("Analyse the dataset, and drive valuable insights and write a detailed report, the different visualizations, different insightfu; indicators etc.")
 			with card_container():
-				st.markdown(response)
+				st.markdown(response2)
 			with card_container():
 				st.markdown(response1)
 			with card_container():
-				st.markdown(response2)
+				st.markdown(response)
 		
 elif tab == "Google sheets":
 	st.write("Google Sheets")
