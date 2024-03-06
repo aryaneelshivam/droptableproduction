@@ -24,10 +24,6 @@ st.set_page_config(
 llm = OpenAI(api_token=st.secrets["OpenAI_Key"])
 openai.api_key = st.secrets["OpenAI_Key"]
 
-instruction1 = """\ 
-	1. Write down all relationships and correlations that can be driven out point wise in very detail from the dataset using explanations and examples from the dataset itself.
-"""
-
 st.title(":blue[Drop]Table")
 
 #header ke niche
@@ -82,7 +78,7 @@ if tab == "Local file":
 	if uploaded_file is not None:
 		# Llama-index Queryt Engine
 		df = pd.read_csv(uploaded_file, encoding='latin-1')
-		query_engine = PandasQueryEngine(df=df, verbose=True, synthesize_response=True, instruction_str=instruction1)
+		query_engine = PandasQueryEngine(df=df, verbose=True, synthesize_response=True)
 		with st.spinner("Generating Summary..."):
 			response = query_engine.query("List down point wise all possible types of relationships and correlations that can be driven out of the dataset in detail.")
 			with card_container():
