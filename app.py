@@ -25,7 +25,7 @@ llm = OpenAI(api_token=st.secrets["OpenAI_Key"])
 openai.api_key = st.secrets["OpenAI_Key"]
 
 instruction1 = """\ 
-	1. Write down all relationships that can be driven out point wise in very detail.
+	1. Write down all relationships and correlations that can be driven out point wise in very detail from the dataset using explanations and examples from the dataset itself.
 """
 
 st.title(":blue[Drop]Table")
