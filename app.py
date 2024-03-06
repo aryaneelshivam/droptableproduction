@@ -10,6 +10,7 @@ from llama_index.llms.openai import OpenAI
 from llama_index.core import SimpleDirectoryReader
 import openai
 from IPython.display import Markdown, display
+from streamlit_option_menu import option_menu
 #from prompts import new_prompt, instruction_str, context
 
 
@@ -57,6 +58,14 @@ elif tabselect == "Precise":
 title = st.sidebar.text_input('Enter your use-key', placeholder="Enter your private use-key",key="placeholder", type="password")
 buybutton = st.sidebar.link_button("Get your Key", "https://teenscript.substack.com/", type="primary", help="Purchase your private use-key to work with droptable.", use_container_width=True)
 st.sidebar.caption('If you dont have a private use-key, then get one and keep it safe.')
+
+#options menu in sidebar
+st.sidebar.write("Conversational data analysis 👇")
+with st.sidebar:
+	selected2 = option_menu(None, ["Enable", "Disable"], 
+    icons=['eye', 'eye-slash'], 
+    menu_icon=None, default_index=0, orientation="horizontal")
+	
 
 tab = ui.tabs(options=['Local file', 'Google sheets', 'Airtable', 'Snowflake'], default_value='Local file', key="select")
 if tab == "Local file":
