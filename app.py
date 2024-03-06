@@ -90,7 +90,7 @@ elif tab == "Airtable":
 		# Llama-index Queryt Engine
 		df = pd.read_csv(uploaded_file, encoding='latin-1')
 		
-elif tab == "Manual":
+elif tab == "Snowflake":
 	with card_container():
 		uploaded_file = st.file_uploader("Choose a file 📂", type=["csv"])
 		#Check is file is uploaded or not
