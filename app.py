@@ -93,6 +93,8 @@ if tab == "Local file":
 				st.markdown(response)
 			with card_container():
 				st.markdown(response1)
+			with card_container():
+				st.markdown(response2)
 		
 elif tab == "Google sheets":
 	st.write("Google Sheets")
