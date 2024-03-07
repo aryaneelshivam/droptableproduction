@@ -95,7 +95,7 @@ if tab == "Local file":
                         code = st.code(plot, language='python')
 			st.echo(code)
 			exec(str(plot))
-			st.set_option('deprecation.showPyplotGlobalUse', False)
+st.set_option('deprecation.showPyplotGlobalUse', False)
 			st.pyplot()
 			
 			#with card_container():
