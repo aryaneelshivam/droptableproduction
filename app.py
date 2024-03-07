@@ -94,12 +94,12 @@ if tab == "Local file":
 			plot = query_engine.query("Write python executable code to plot a pie chart, expression only, strictly no text")
 
 			
-			with card_container():
-				st.markdown(response2)
-			with card_container():
-				st.markdown(response1)
-			with card_container():
-				st.markdown(response)
+			#with card_container():
+				#st.markdown(response2)
+			#with card_container():
+				#st.markdown(response1)
+			#with card_container():
+				#st.markdown(response)
 				st.markdown(plot)
 		
 elif tab == "Google sheets":
