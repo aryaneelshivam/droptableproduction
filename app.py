@@ -98,7 +98,7 @@ if tab == "Local file":
 			with card_container():
 				st.markdown(response)
 			with st.echo():
-				{chartsft}
+				{chartft}
 		
 elif tab == "Google sheets":
 	st.write("Google Sheets")
