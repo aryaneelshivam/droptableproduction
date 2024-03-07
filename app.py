@@ -101,6 +101,7 @@ if tab == "Local file":
 			with card_container():
 				#st.markdown(response)
 				ans = st.markdown(plot)
+				st.pyplot(plot)
 				st.echo(plot)
 					
 		
