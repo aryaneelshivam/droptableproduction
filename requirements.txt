@@ -1,7 +1,7 @@
 streamlit
 streamlit-shadcn-ui
 llama-index
-pandasai
+pandasai==2.0.3
 pandas
 llama-index-core
 llama-index-llms-openai
