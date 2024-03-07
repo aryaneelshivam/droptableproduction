@@ -100,8 +100,8 @@ if tab == "Local file":
 				#st.markdown(response1)
 			with card_container():
 				#st.markdown(response)
-				st.code(plot, language='python')
-				st.echo(plot)
+				code = st.code(plot, language='python')
+				st.echo(code)
 
 					
 		
