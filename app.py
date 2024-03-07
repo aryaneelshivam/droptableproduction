@@ -91,7 +91,7 @@ if tab == "Local file":
 			response = query_engine.query("List down point wise all possible types of relationships and correlations that can be driven out of the dataset in detail with explanations and examples.")
 			response2 = query_engine.query("Summarize the entire dataset")
 			response1 = query_engine.query("Analyse the dataset, and drive valuable insights and write a detailed report, the different visualizations, different insightfu; indicators etc.")
-			plot = query_engine.query("Plot a pie chart")
+			plot = query_engine.query("Write python executable code to plot a pie chart, expression only.")
 			#answer = sdf.chat("Plot three important chart visualizations")
 			#st.success(answer)
 			#st.set_option('deprecation.showPyplotGlobalUse', False)
