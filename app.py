@@ -104,7 +104,7 @@ if tab == "Local file":
 				st.echo(code)
 				exec(plot)
             			# Display the plot using st.pyplot()
-            			st.pyplot()
+            			#st.pyplot()
 
 					
 		
