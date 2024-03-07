@@ -91,7 +91,7 @@ if tab == "Local file":
 			response = query_engine.query("List down point wise all possible types of relationships and correlations that can be driven out of the dataset in detail with explanations and examples.")
 			response2 = query_engine.query("Summarize the entire dataset")
 			response1 = query_engine.query("Analyse the dataset, and drive valuable insights and write a detailed report, the different visualizations, different insightfu; indicators etc.")
-			plot = query_engine.query("Write python executable code to subplot three different charts, expression only, strictly no text")
+			plot = query_engine.query("Write python executable code to subplot three different charts from the dataset, expression only, strictly no text")
 			with st.spinner("Generating plots..."):
 				code = st.code(plot, language='python')
 				st.echo(code)
