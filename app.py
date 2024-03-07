@@ -100,11 +100,11 @@ if tab == "Local file":
 				#st.markdown(response1)
 			with card_container():
 				#st.markdown(response)
-				code = st.code(plot, language='python')
-				st.echo(code)
-				exec(str(plot))
-				st.set_option('deprecation.showPyplotGlobalUse', False)
-				st.pyplot()
+			code = st.code(plot, language='python')
+			st.echo(code)
+			exec(str(plot))
+			st.set_option('deprecation.showPyplotGlobalUse', False)
+			st.pyplot()
 
 					
 		
