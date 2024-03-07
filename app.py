@@ -102,9 +102,7 @@ if tab == "Local file":
 				#st.markdown(response)
 				code = st.code(plot, language='python')
 				st.echo(code)
-				exec(code)
-            			# Display the plot using st.pyplot()
-            			#st.pyplot()
+				st.write(st.echo(code))
 
 					
 		
