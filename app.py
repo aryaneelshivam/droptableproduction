@@ -3,8 +3,7 @@ import pandas as pd
 import streamlit_shadcn_ui as ui
 from local_components import card_container 
 from pandasai import SmartDataframe
-from pandasai import PandasAI
-from pandasai.llm.openai import OpenAI
+from pandasai.llm import OpenAI
 from llama_index.core import VectorStoreIndex, ServiceContext, Document
 from llama_index.core.query_engine import PandasQueryEngine
 from llama_index.llms.openai import OpenAI
@@ -24,7 +23,6 @@ st.set_page_config(
 
 llm = OpenAI(api_token=st.secrets["OpenAI_Key"])
 openai.api_key = st.secrets["OpenAI_Key"]
-pandas_ai = PandasAI(llm)
 
 instruction = """\
 1.Convert the dataset and summarize with every important points.
@@ -93,7 +91,7 @@ if tab == "Local file":
 			response = query_engine.query("List down point wise all possible types of relationships and correlations that can be driven out of the dataset in detail with explanations and examples.")
 			response2 = query_engine.query("Summarize the entire dataset")
 			response1 = query_engine.query("Analyse the dataset, and drive valuable insights and write a detailed report, the different visualizations, different insightfu; indicators etc.")
-			answer = pandas_ai.run("Plot three important chart visualizations")
+			answer = sdf.chat("Plot three important chart visualizations")
 			st.success(answer)
 			st.set_option('deprecation.showPyplotGlobalUse', False)
 			st.pyplot()
