@@ -84,6 +84,7 @@ if tab == "Local file":
 	if uploaded_file is not None:
 		# Llama-index Queryt Engine
 		df = pd.read_csv(uploaded_file, encoding='latin-1')
+		llm = OpenAI(api_token=st.secrets["OpenAI_Key"])
 		sdf = SmartDataframe(df, config={"llm":llm})
 		query_engine = PandasQueryEngine(df=df, verbose=True, synthesize_response=True)
 		with st.spinner("Generating Summary..."):
