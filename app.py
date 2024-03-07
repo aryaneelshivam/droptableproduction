@@ -97,7 +97,7 @@ if tab == "Local file":
 				st.echo(code)
 				exec(str(plot))
 				st.set_option('deprecation.showPyplotGlobalUse', False)
-				st.pyplot()
+				st.pyplot(fig=None, clear_figure=None, use_container_width=True)
 			
 			#with card_container():
 				#st.markdown(response2)
