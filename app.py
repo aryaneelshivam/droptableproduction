@@ -100,9 +100,9 @@ if tab == "Local file":
 				#st.markdown(response1)
 			with card_container():
 				#st.markdown(response)
-				ans = st.markdown(plot)
-				st.pyplot(plot)
+				st.code(plot, language='python')
 				st.echo(plot)
+
 					
 		
 elif tab == "Google sheets":
