@@ -89,12 +89,14 @@ if tab == "Local file":
 			response = query_engine.query("List down point wise all possible types of relationships and correlations that can be driven out of the dataset in detail with explanations and examples.")
 			response2 = query_engine.query("Summarize the entire dataset")
 			response1 = query_engine.query("Analyse the dataset, and drive valuable insights and write a detailed report, the different visualizations, different insightfu; indicators etc.")
+			charts = query_engine.query("Plot three different charts for visualization.")
 			with card_container():
 				st.markdown(response2)
 			with card_container():
 				st.markdown(response1)
 			with card_container():
 				st.markdown(response)
+				st.write(charts)
 		
 elif tab == "Google sheets":
 	st.write("Google Sheets")
