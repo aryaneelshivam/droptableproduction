@@ -92,10 +92,10 @@ if tab == "Local file":
 			#response2 = query_engine.query("Summarize the entire dataset")
 			#response1 = query_engine.query("Analyse the dataset, and drive valuable insights and write a detailed report, the different visualizations, different insightfu; indicators etc.")
 			plot = query_engine.query("Write python executable code to plot three different charts, expression only, strictly no text")
-                        code = st.code(plot, language='python')
+                        #code = st.code(plot, language='python')
 			st.echo(code)
 			exec(str(plot))
-st.set_option('deprecation.showPyplotGlobalUse', False)
+			st.set_option('deprecation.showPyplotGlobalUse', False)
 			st.pyplot()
 			
 			#with card_container():
