@@ -103,7 +103,7 @@ if tab == "Local file":
 				code = st.code(plot, language='python')
 				st.echo(code)
 				exec(str(plot))
-				st.pyplot
+				st.pyplot()
 
 					
 		
