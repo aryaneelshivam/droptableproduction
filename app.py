@@ -98,7 +98,7 @@ if tab == "Local file":
 				#st.markdown(response2)
 			#with card_container():
 				#st.markdown(response1)
-			#with card_container():
+			with card_container():
 				#st.markdown(response)
 				st.markdown(plot)
 		
