@@ -88,9 +88,9 @@ if tab == "Local file":
 		#sdf = SmartDataframe(df, config={"llm": llm})
 		query_engine = PandasQueryEngine(df=df, verbose=True, synthesize_response=True)
 		with st.spinner("Generating Summary..."):
-			#response = query_engine.query("List down point wise all possible types of relationships and correlations that can be driven out of the dataset in detail with explanations and examples.")
-			#response2 = query_engine.query("Summarize the entire dataset")
-			#response1 = query_engine.query("Analyse the dataset, and drive valuable insights and write a detailed report, the different visualizations, different insightfu; indicators etc.")
+			response = query_engine.query("List down point wise all possible types of relationships and correlations that can be driven out of the dataset in detail with explanations and examples.")
+			response2 = query_engine.query("Summarize the entire dataset")
+			response1 = query_engine.query("Analyse the dataset, and drive valuable insights and write a detailed report, the different visualizations, different insightfu; indicators etc.")
 			plot = query_engine.query("Write python executable code to subplot three different charts, expression only, strictly no text")
 			with st.spinner("Generating plots..."):
 				code = st.code(plot, language='python')
@@ -99,10 +99,10 @@ if tab == "Local file":
 				st.set_option('deprecation.showPyplotGlobalUse', False)
 				st.pyplot(use_container_width=True)
 			
-			#with card_container():
-				#st.markdown(response2)
-			#with card_container():
-				#st.markdown(response1)
+			with card_container():
+				st.markdown(response2)
+			with card_container():
+				st.markdown(response1)
 			with card_container():
 				st.markdown(response)
 					
