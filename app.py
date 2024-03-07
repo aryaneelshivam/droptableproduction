@@ -101,10 +101,10 @@ if tab == "Local file":
 			with card_container():
 				#st.markdown(response)
 				code = st.code(plot, language='python')
-				st.echo(plot)
-		exec(plot)
-            	# Display the plot using st.pyplot()
-            	st.pyplot()
+				st.echo(code)
+				exec(plot)
+            			# Display the plot using st.pyplot()
+            			st.pyplot()
 
 					
 		
