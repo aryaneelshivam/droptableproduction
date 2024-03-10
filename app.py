@@ -86,7 +86,7 @@ if tab == "Local file":
 		df = pd.read_csv(uploaded_file, encoding='latin-1')
 		#llm = OpenAI(api_token=st.secrets["OpenAI_Key"])
 		#sdf = SmartDataframe(df, config={"llm": llm})
-		st.dataframe(df.style.highlight_max(axis=1))
+		st.dataframe(df)
 		query_engine = PandasQueryEngine(df=df, verbose=True, synthesize_response=True)
 		with st.spinner("Exploring data..."):
 			response = query_engine.query("List down point wise all possible types of relationships and correlations that can be driven out of the dataset in detail with explanations and examples.")
