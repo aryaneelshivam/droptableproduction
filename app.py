@@ -97,7 +97,13 @@ if tab == "Local file":
 				response1 = query_engine.query("Analyse the dataset, and drive valuable insights and write a detailed report, the different visualizations, different insightfu; indicators etc.")
 		if response1:
 			with st.spinner("Generating visualizations..."):
-				plot = query_engine.query("Generate Python executable code to create three distinct charts from the dataset. Only executable code.")
+				plot = query_engine.query("Generate Python executable code to create three distinct  subplotted charts from the dataset. Only executable code.")
+			with card_container():
+				st.markdown(response2)
+			with card_container():
+				st.markdown(response1)
+			with card_container():
+				st.markdown(response)
 			with st.spinner("Generating plots..."):
 				code = st.code(plot, language='python')
 				st.echo(code)
@@ -105,12 +111,6 @@ if tab == "Local file":
 				st.set_option('deprecation.showPyplotGlobalUse', False)
 				st.pyplot(use_container_width=True)
 			
-		with card_container():
-			st.markdown(response2)
-		with card_container():
-			st.markdown(response1)
-		with card_container():
-			st.markdown(response)
 					
 		
 elif tab == "Google sheets":
