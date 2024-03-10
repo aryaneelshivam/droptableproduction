@@ -97,7 +97,7 @@ if tab == "Local file":
 				response1 = query_engine.query("Analyse the dataset, and drive valuable insights and write a detailed report, the different visualizations, different insightfu; indicators etc.")
 		if response1:
 			with st.spinner("Generating visualizations..."):
-				plot = query_engine.query("Generate Python executable code to create three distinct charts from the dataset, without any accompanying text.")
+				plot = query_engine.query("Generate Python executable code to create three distinct charts from the dataset. Only executable code.")
 			with st.spinner("Generating plots..."):
 				code = st.code(plot, language='python')
 				st.echo(code)
