@@ -98,7 +98,7 @@ if tab == "Local file":
 				response1 = query_engine.query("Analyse the dataset, and drive valuable insights and write a detailed report, the different visualizations, different insightfu; indicators etc.")
 		if response1:
 			with st.spinner("Generating visualizations..."):
-				plot = query_engine.query("with reference to the provided dataset, Generate Python executable code to plot multiple chart types like, bar chart, pie chart, line chart, histogram and scatter plot. Ensure the code is structured to plot different types of charts. Use subplots. Code only. df is the name of the dataframe, all modules are already imported.")
+				plot = query_engine.query("Generate Python executable code to plot multiple chart types like, bar chart, pie chart, line chart, histogram and scatter plot. Ensure the code is structured to plot different types of charts. Use subplots. Code only.")
 			with card_container():
 				st.markdown(response2)
 			with card_container():
