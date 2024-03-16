@@ -85,6 +85,8 @@ if selected2 == "Enable":
 			with st.spinner("Generating answer..."):
 				conv = querydata.query(txt)
 				st.info(conv, icon="💡")
+	elif convfile is None:
+		st.warn("Connect to a source to get conversational capabilities.")
 if tab == "Local file":
 
 	with card_container():
