@@ -72,7 +72,7 @@ with st.sidebar:
     icons=['eye', 'eye-slash'], 
     menu_icon=None, default_index=1, orientation="horizontal")
 	
-tab1, tab2, tab3, tab4 = st.tabs(["Local file", "Google sheets", "Airtable", "Snowflake"])
+tab1, tab2, tab3, tab4 = st.tabs(["Local file 📂", "Google sheets 📄", "Airtable 💨", "Snowflake ❄"])
 #tab = ui.tabs(options=['Local file', 'Google sheets', 'Airtable', 'Snowflake'], default_value='Local file', key="select")
 
 
