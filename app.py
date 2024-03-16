@@ -70,7 +70,7 @@ st.sidebar.write("Conversational data analysis 👇")
 with st.sidebar:
 	selected2 = option_menu(None, ["Enable", "Disable"], 
     icons=['eye', 'eye-slash'], 
-    menu_icon=None, default_index=0, orientation="horizontal")
+    menu_icon=None, default_index=1, orientation="horizontal")
 	
 
 tab = ui.tabs(options=['Local file', 'Google sheets', 'Airtable', 'Snowflake'], default_value='Local file', key="select")
