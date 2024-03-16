@@ -73,7 +73,7 @@ with st.sidebar:
     menu_icon=None, default_index=1, orientation="horizontal")
 #Conversational Ai part:
 if selected2 == "Enable":
-	convfile = st.sidebar.file_uploader("Choose a file 📂", type=["csv"])
+	convfile = st.sidebar.file_uploader("Choose a file 📂", type=["csv"], key="conv")
 	txt = st.text_area("Enter your query ⁉")
 	if txt:
 		with st.spinner("Generating answer..."):
