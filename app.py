@@ -71,9 +71,6 @@ with st.sidebar:
 	selected2 = option_menu(None, ["Enable", "Disable"], 
     icons=['eye', 'eye-slash'], 
     menu_icon=None, default_index=1, orientation="horizontal")
-
-tabselectside = ui.sidebar.tabs(options=['Creative', 'Medium', 'Precise'], default_value='Medium', key="temperature")
-
 	
 
 tab = ui.tabs(options=['Local file', 'Google sheets', 'Airtable', 'Snowflake'], default_value='Local file', key="select")
@@ -107,7 +104,8 @@ if tab == "Local file":
 		#llm = OpenAI(api_token=st.secrets["OpenAI_Key"])
 		#sdf = SmartDataframe(df, config={"llm": llm})
 		st.dataframe(df)
-		query_engine = PandasQueryEngine(df=df, verbose=True, synthesize_response=True)		
+		query_engine = PandasQueryEngine(df=df, verbose=True, synthesize_response=True)
+		manual = st.toggle("Enable manual plotting")
 		with st.spinner("Exploring data..."):
 			response = query_engine.query("List down point wise all possible types of relationships and correlations that can be driven out of the dataset in detail with explanations and examples.")
 		if response:
