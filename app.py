@@ -138,7 +138,7 @@ if tab == "Local file":
 			elif selected2 == "Disable":
 				st.error("The conversational feature is disabled, please select 'enable' to enable.", icon="🚨")
 		with tab3:
-			st.write("tab3")
+			st.warning("DropAI vision is currently not available in the Beta Version.", icon="⚠")
 
 					
 		
