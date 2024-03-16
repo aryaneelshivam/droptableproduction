@@ -74,9 +74,11 @@ with st.sidebar:
 	
 
 tab = ui.tabs(options=['Local file', 'Google sheets', 'Airtable', 'Snowflake'], default_value='Local file', key="select")
+
+
 #Conversational Ai part:
 if selected2 == "Enable":
-	convfile = st.sidebar.file_uploader("Choose a file 📂", type=["csv"], key="conv")
+	convfile = st.sidebar.file_uploader("Choose a file to talk 💬", type=["csv"], key="conv")
 	if convfile is not None:
 		data = pd.read_csv(convfile, encoding='latin-1')
 		querydata = PandasQueryEngine(df=data, verbose=True, synthesize_response=True)
@@ -87,6 +89,8 @@ if selected2 == "Enable":
 				st.info(conv, icon="💡")
 	if convfile is None:
 		st.warning("Connect to a source to get conversational capabilities.")
+
+
 if tab == "Local file":
 
 	with card_container():
