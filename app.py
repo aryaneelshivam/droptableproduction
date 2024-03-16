@@ -92,9 +92,9 @@ if tab == "Local file":
 		if selected2 == "Enable":
 			txt = st.text_area("Enter your query ⁉")
 			if txt:
-				with st.spinner("Generating answer...")
-				conv = query_engine.query(txt)
-				st.info(conv, icon="💡")
+				with st.spinner("Generating answer..."):
+					conv = query_engine.query(txt)
+					st.info(conv, icon="💡")
 				
 		with st.spinner("Exploring data..."):
 			response = query_engine.query("List down point wise all possible types of relationships and correlations that can be driven out of the dataset in detail with explanations and examples.")
