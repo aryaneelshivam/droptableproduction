@@ -71,6 +71,9 @@ with st.sidebar:
 	selected2 = option_menu(None, ["Enable", "Disable"], 
     icons=['eye', 'eye-slash'], 
     menu_icon=None, default_index=1, orientation="horizontal")
+
+tabselectside = ui.sidebar.tabs(options=['Creative', 'Medium', 'Precise'], default_value='Medium', key="temperature")
+
 	
 
 tab = ui.tabs(options=['Local file', 'Google sheets', 'Airtable', 'Snowflake'], default_value='Local file', key="select")
