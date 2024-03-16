@@ -81,12 +81,13 @@ if selected2 == "Enable":
 	convfile = st.sidebar.file_uploader("Choose a file to talk 💬", type=["csv"], key="conv")
 	if convfile is not None:
 		data = pd.read_csv(convfile, encoding='latin-1')
-		querydata = PandasQueryEngine(df=data, verbose=True, synthesize_response=True)
-		txt = st.text_area("Enter your query 💬")
-		if txt:
-			with st.spinner("Generating answer..."):
-				conv = querydata.query(txt)
-				st.info(conv, icon="💡")
+		with st.container():
+			querydata = PandasQueryEngine(df=data, verbose=True, synthesize_response=True)
+			txt = st.text_area("Enter your query 💬")
+			if txt:
+				with st.spinner("Generating answer..."):
+					conv = querydata.query(txt)
+					st.info(conv, icon="💡")
 	if convfile is None:
 		st.warning("Connect to a source to get conversational capabilities.")
 
