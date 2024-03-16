@@ -135,6 +135,8 @@ if tab == "Local file":
 								st.info(conv, icon="💡")
 				if convfile is None:
 					st.warning("Connect to a source to get conversational capabilities.")
+			elif selected == "Disable":
+				st.error("The conversational feature is disabled, please select 'enable' to enable.", icon="🚨")
 		with tab3:
 			st.write("tab3")
 
