@@ -107,9 +107,12 @@ with tab1:
 		st.dataframe(df)
 		query_engine = PandasQueryEngine(df=df, verbose=True, synthesize_response=True)
 		generate = st.button("Generate AI analysis ⚡",use_container_width=True)
+		if "generate_state" not in st.session_state:
+			st.session_state.generate_state = False
 		manual = st.toggle("Enable manual plotting")
 		#if user hits generate button
-		if generate:
+		if generate or st.session_state.generate_state:
+			st.session_state.generate_state = True
 			with st.spinner("Exploring data..."):
 				response = query_engine.query("List down point wise all possible types of relationships and correlations that can be driven out of the dataset in detail with explanations and examples.")
 			if response:
