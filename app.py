@@ -77,9 +77,9 @@ tab = ui.tabs(options=['Local file', 'Google sheets', 'Airtable', 'Snowflake'], 
 #Conversational Ai part:
 if selected2 == "Enable":
 	convfile = st.sidebar.file_uploader("Choose a file 📂", type=["csv"], key="conv")
-	data = pd.read_csv(convfile, encoding='latin-1')
-	querydata = PandasQueryEngine(df=data, verbose=True, synthesize_response=True)
 	if convfile is not None:
+		data = pd.read_csv(convfile, encoding='latin-1')
+		querydata = PandasQueryEngine(df=data, verbose=True, synthesize_response=True)
 		txt = st.text_area("Enter your query ⁉")
 		if txt:
 			with st.spinner("Generating answer..."):
