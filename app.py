@@ -71,17 +71,20 @@ with st.sidebar:
 	selected2 = option_menu(None, ["Enable", "Disable"], 
     icons=['eye', 'eye-slash'], 
     menu_icon=None, default_index=1, orientation="horizontal")
-#Conversational Ai part:
-if selected2 == "Enable":
-	convfile = st.sidebar.file_uploader("Choose a file 📂", type=["csv"], key="conv")
-	txt = st.text_area("Enter your query ⁉")
-	if txt:
-		with st.spinner("Generating answer..."):
-			conv = query_engine.query(txt)
-			st.info(conv, icon="💡")
 	
 
 tab = ui.tabs(options=['Local file', 'Google sheets', 'Airtable', 'Snowflake'], default_value='Local file', key="select")
+#Conversational Ai part:
+if selected2 == "Enable":
+	convfile = st.sidebar.file_uploader("Choose a file 📂", type=["csv"], key="conv")
+	data = pd.read_csv(convfile, encoding='latin-1')
+	querydata = PandasQueryEngine(df=data, verbose=True, synthesize_response=True)
+	if convfile is not None:
+		txt = st.text_area("Enter your query ⁉")
+		if txt:
+			with st.spinner("Generating answer..."):
+				conv = querydata.query(txt)
+				st.info(conv, icon="💡")
 if tab == "Local file":
 
 	with card_container():
