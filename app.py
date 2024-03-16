@@ -1,3 +1,4 @@
+
 import streamlit as st
 import pandas as pd
 import streamlit_shadcn_ui as ui
@@ -75,22 +76,6 @@ with st.sidebar:
 tab = ui.tabs(options=['Local file', 'Google sheets', 'Airtable', 'Snowflake'], default_value='Local file', key="select")
 
 
-#Conversational Ai part:
-if selected2 == "Enable":
-	convfile = st.sidebar.file_uploader("Choose a file to talk 💬", type=["csv"], key="conv")
-	if convfile is not None:
-		data = pd.read_csv(convfile, encoding='latin-1')
-		with st.container():
-			querydata = PandasQueryEngine(df=data, verbose=True, synthesize_response=True)
-			txt = st.text_area("Enter your query 💬")
-			if txt:
-				with st.spinner("Generating answer..."):
-					conv = querydata.query(txt)
-					st.info(conv, icon="💡")
-	if convfile is None:
-		st.warning("Connect to a source to get conversational capabilities.")
-
-
 if tab == "Local file":
 
 	with card_container():
@@ -106,35 +91,53 @@ if tab == "Local file":
 		st.dataframe(df)
 		query_engine = PandasQueryEngine(df=df, verbose=True, synthesize_response=True)
 		tab1, tab2, tab3 = st.tabs(["AI report 📌", "Generative chat 💬", "DropAI vision 👁‍🗨"])
-		generate = st.button("Generate AI analysis ⚡",use_container_width=True)
-		manual = st.toggle("Enable manual plotting")
-		#if user hits generate button
-		if generate:
-			st.session_state.generate_state = True
-			with st.spinner("Exploring data..."):
-				response = query_engine.query("List down point wise all possible types of relationships and correlations that can be driven out of the dataset in detail with explanations and examples.")
-			if response:
-				with st.spinner("Analysing data..."):
-					response2 = query_engine.query("Summarize the entire dataset")
-			if response2:
-				with st.spinner("Generating summary..."):
-					response1 = query_engine.query("Analyse the dataset, and drive valuable insights and write a detailed report, the different visualizations, different insightfu; indicators etc.")
-			if response1:
-				with st.spinner("Generating visualizations..."):
-					plot = query_engine.query("Generate Python executable code to plot multiple chart types like, bar chart, pie chart, line chart, histogram and scatter plot. Ensure the code is structured to plot different types of charts. Use subplots. Code only.")
-				with card_container():
-					st.markdown(response2)
-				with card_container():
-					st.markdown(response1)
-				with card_container():
-					st.markdown(response)
-				with st.spinner("Generating plots..."):
-					code = st.code(plot, language='python')
-					st.echo(code)
-					exec(str(plot))
-					st.set_option('deprecation.showPyplotGlobalUse', False)
-					st.pyplot(use_container_width=True)
-			
+		with tab1:
+			generate = st.button("Generate AI analysis ⚡",use_container_width=True)
+			manual = st.toggle("Enable manual plotting")
+			#if user hits generate button
+			if generate:
+				st.session_state.generate_state = True
+				with st.spinner("Exploring data..."):
+					response = query_engine.query("List down point wise all possible types of relationships and correlations that can be driven out of the dataset in detail with explanations and examples.")
+				if response:
+					with st.spinner("Analysing data..."):
+						response2 = query_engine.query("Summarize the entire dataset")
+				if response2:
+					with st.spinner("Generating summary..."):
+						response1 = query_engine.query("Analyse the dataset, and drive valuable insights and write a detailed report, the different visualizations, different insightfu; indicators etc.")
+				if response1:
+					with st.spinner("Generating visualizations..."):
+						plot = query_engine.query("Generate Python executable code to plot multiple chart types like, bar chart, pie chart, line chart, histogram and scatter plot. Ensure the code is structured to plot different types of charts. Use subplots. Code only.")
+					with card_container():
+						st.markdown(response2)
+					with card_container():
+						st.markdown(response1)
+					with card_container():
+						st.markdown(response)
+					with st.spinner("Generating plots..."):
+						code = st.code(plot, language='python')
+						st.echo(code)
+						exec(str(plot))
+						st.set_option('deprecation.showPyplotGlobalUse', False)
+						st.pyplot(use_container_width=True)
+		with tab2:
+			#Conversational Ai part:
+			if selected2 == "Enable":
+				convfile = st.sidebar.file_uploader("Choose a file to talk 💬", type=["csv"], key="conv")
+				if convfile is not None:
+					data = pd.read_csv(convfile, encoding='latin-1')
+					with st.container():
+						querydata = PandasQueryEngine(df=data, verbose=True, synthesize_response=True)
+						txt = st.text_area("Enter your query 💬")
+						if txt:
+							with st.spinner("Generating answer..."):
+								conv = querydata.query(txt)
+								st.info(conv, icon="💡")
+				if convfile is None:
+					st.warning("Connect to a source to get conversational capabilities.")
+		with tab3:
+			st.write("tab3")
+
 					
 		
 if tab == "google sheets":
