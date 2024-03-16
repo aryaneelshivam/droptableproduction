@@ -72,8 +72,8 @@ with st.sidebar:
     icons=['eye', 'eye-slash'], 
     menu_icon=None, default_index=1, orientation="horizontal")
 	
-
-tab = ui.tabs(options=['Local file', 'Google sheets', 'Airtable', 'Snowflake'], default_value='Local file', key="select")
+tab1, tab2, tab3, tab4 = st.tabs(["Local file", "Google sheets", "Airtable", "Snowflake"])
+#tab = ui.tabs(options=['Local file', 'Google sheets', 'Airtable', 'Snowflake'], default_value='Local file', key="select")
 
 
 #Conversational Ai part:
@@ -92,7 +92,7 @@ if selected2 == "Enable":
 		st.warning("Connect to a source to get conversational capabilities.")
 
 
-if tab == "Local file":
+with tab1:
 
 	with card_container():
 		uploaded_file = st.file_uploader("Choose a file 📂", type=["csv"])
@@ -136,12 +136,12 @@ if tab == "Local file":
 			
 					
 		
-elif tab == "Google sheets":
+with tab2:
 	st.write("Google Sheets")
 
-elif tab == "Airtable":
+with tab3:
 	st.write("Airtable")
 		
-elif tab == "Snowflake":
+with tab4:
 	st.write("Snowflake")
 
