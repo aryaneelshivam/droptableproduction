@@ -105,7 +105,7 @@ if tab == "Local file":
 		#sdf = SmartDataframe(df, config={"llm": llm})
 		st.dataframe(df)
 		query_engine = PandasQueryEngine(df=df, verbose=True, synthesize_response=True)
-		tab1, tab2, tab3, tab4 = st.tabs(["Local file 📂", "Google sheets 📄", "Airtable 💨", "Snowflake ❄"])
+		tab1, tab2, tab3 = st.tabs(["AI report 📌", "Generative chat 💬", "DropAI vision 👁‍🗨"])
 		generate = st.button("Generate AI analysis ⚡",use_container_width=True)
 		manual = st.toggle("Enable manual plotting")
 		#if user hits generate button
