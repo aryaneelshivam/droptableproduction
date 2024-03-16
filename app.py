@@ -84,8 +84,7 @@ if selected2 == "Enable":
 		if txt:
 			with st.spinner("Generating answer..."):
 				conv = querydata.query(txt)
-				pretty = st.markdown(conv)
-				st.info(pretty, icon="💡")
+				st.info(conv, icon="💡")
 if tab == "Local file":
 
 	with card_container():
