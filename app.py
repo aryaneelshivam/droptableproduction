@@ -107,11 +107,9 @@ if tab == "Local file":
 		query_engine = PandasQueryEngine(df=df, verbose=True, synthesize_response=True)
 		tab1, tab2, tab3, tab4 = st.tabs(["Local file 📂", "Google sheets 📄", "Airtable 💨", "Snowflake ❄"])
 		generate = st.button("Generate AI analysis ⚡",use_container_width=True)
-		if "generate_state" not in st.session_state:
-			st.session_state.generate_state = False
 		manual = st.toggle("Enable manual plotting")
 		#if user hits generate button
-		if generate or st.session_state.generate_state:
+		if generate:
 			st.session_state.generate_state = True
 			with st.spinner("Exploring data..."):
 				response = query_engine.query("List down point wise all possible types of relationships and correlations that can be driven out of the dataset in detail with explanations and examples.")
