@@ -86,7 +86,7 @@ if selected2 == "Enable":
 				conv = querydata.query(txt)
 				st.info(conv, icon="💡")
 	if convfile is None:
-		st.warn("Connect to a source to get conversational capabilities.")
+		st.warning("Connect to a source to get conversational capabilities.")
 if tab == "Local file":
 
 	with card_container():
