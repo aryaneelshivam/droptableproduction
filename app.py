@@ -82,7 +82,7 @@ if selected2 == "Enable":
 	if convfile is not None:
 		data = pd.read_csv(convfile, encoding='latin-1')
 		querydata = PandasQueryEngine(df=data, verbose=True, synthesize_response=True)
-		txt = st.text_area("Enter your query ⁉")
+		txt = st.text_area("Enter your query 💬")
 		if txt:
 			with st.spinner("Generating answer..."):
 				conv = querydata.query(txt)
