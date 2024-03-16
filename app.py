@@ -72,7 +72,6 @@ with st.sidebar:
     icons=['eye', 'eye-slash'], 
     menu_icon=None, default_index=1, orientation="horizontal")
 	
-tab1, tab2, tab3, tab4 = st.tabs(["Local file 📂", "Google sheets 📄", "Airtable 💨", "Snowflake ❄"])
 tab = ui.tabs(options=['Local file', 'Google sheets', 'Airtable', 'Snowflake'], default_value='Local file', key="select")
 
 
@@ -106,6 +105,7 @@ if tab == "Local file":
 		#sdf = SmartDataframe(df, config={"llm": llm})
 		st.dataframe(df)
 		query_engine = PandasQueryEngine(df=df, verbose=True, synthesize_response=True)
+		tab1, tab2, tab3, tab4 = st.tabs(["Local file 📂", "Google sheets 📄", "Airtable 💨", "Snowflake ❄"])
 		generate = st.button("Generate AI analysis ⚡",use_container_width=True)
 		if "generate_state" not in st.session_state:
 			st.session_state.generate_state = False
