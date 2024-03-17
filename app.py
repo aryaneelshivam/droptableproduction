@@ -59,7 +59,7 @@ with tab1:
 				st.write("Sample")
 
 		col3, col4 = st.columns(2)
-        	with col3:
+		with col3:
 			with st.expander("🔍 Ask questions and query out results."):
 				st.write("Sample")
             	user_input = st.text_area("Enter your input 💬", placeholder="Enter your question/query")  
