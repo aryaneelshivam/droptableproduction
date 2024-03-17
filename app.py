@@ -62,8 +62,8 @@ with tab1:
 		with col3:
 			with st.expander("🔍 Ask questions and query out results."):
 				st.write("Sample")
-            	user_input = st.text_area("Enter your input 💬", placeholder="Enter your question/query")  
-            	enter_button = st.button("Enter ⚡", use_container_width=True, type="primary")
+		user_input = st.text_area("Enter your input 💬", placeholder="Enter your question/query")  
+		enter_button = st.button("Enter ⚡", use_container_width=True, type="primary")
 		if enter_button:
 			if user_input:
 				with st.spinner():
