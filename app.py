@@ -48,7 +48,7 @@ with tab1:
 	uploaded_file = st.sidebar.file_uploader("Choose a file 📂", type=["csv"])
 	if uploaded_file is not None:
 		df = pd.read_csv(uploaded_file, encoding='latin-1')
-        	querydata = PandasQueryEngine(df=df, verbose=True, synthesize_response=True)
+		querydata = PandasQueryEngine(df=df, verbose=True, synthesize_response=True)
        		# Columns for two sections
         	col1, col2 = st.columns(2)
         	with col1:
