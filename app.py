@@ -61,12 +61,22 @@ with col3:
         st.write("Sample")
     user_input = st.text_area("Enter your input 💬", placeholder="Enter your question/query")  
     enter_button = st.button("Enter ⚡", use_container_width=True, type="primary")
+    if enter_button:
+	    if uploaded_file is None:
+		    st.info("Upload a .csv or .xlsx spreadsheet file to continue", icon="ℹ️")
+	    if uploaded_file is not None:
+		    df = pd.read_csv(uploaded_file, encoding='latin-1')
+		    querydata = PandasQueryEngine(df=df, verbose=True, synthesize_response=True)
+		    if user_input:
+			    with st.spinner("Generating answer..."):
+				    conv = querydata.query(user_input)
 
 with col4:
     with st.expander("👀 Analyse charts and graphs visually."):
         st.write("Sample")
-    output = st.text_area("Your generated output 🎉", placeholder="The output will be displayed here")
+    output = st.text_area("Your generated output 🎉", placeholder="The output will be displayed here", value=conv)
     generate = st.button("Generate AI report ⚡", use_container_width=True)
+		    
 
 st.write(" ")
 #tab1, tab2 = st.tabs(["Generate AI report 🔄", "Manual plotting 🖐"])
