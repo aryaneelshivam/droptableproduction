@@ -65,10 +65,10 @@ with tab1:
                 st.write("Sample")
             user_input = st.text_area("Enter your input 💬", placeholder="Enter your question/query")  
             enter_button = st.button("Enter ⚡", use_container_width=True, type="primary")
-            if enter_button:
-		    if user_input:
-			    with st.spinner("Generating answer..."):
-				    conv = querydata.query(user_input)
+	if enter_button:
+		if user_input:
+			with st.spinner("Generating answer..."):
+				conv = querydata.query(user_input)
 
         with col4:
             with st.expander("👀 Analyse charts and graphs visually."):
