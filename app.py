@@ -58,7 +58,7 @@ with tab1:
 			with st.expander("🔗 Connect your data to a data source."):
 				st.write("Sample")
 
-        	col3, col4 = st.columns(2)
+		col3, col4 = st.columns(2)
         	with col3:
 			with st.expander("🔍 Ask questions and query out results."):
 				st.write("Sample")
