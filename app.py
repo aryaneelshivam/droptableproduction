@@ -47,7 +47,7 @@ tab1, tab2, tab3, tab4 = st.tabs(["Local file", "Google sheets", "Airtable", "Sn
 with tab1:
 	uploaded_file = st.sidebar.file_uploader("Choose a file 📂", type=["csv"])
 	if uploaded_file is None:
-		st.warning("Select a data source and upload a file to continue.", icon="🚨")
+		st.error("Select a data source and upload a file to continue.", icon="🚨")
 	if uploaded_file is not None:
 		df = pd.read_csv(uploaded_file, encoding='latin-1')
 		querydata = PandasQueryEngine(df=df, verbose=True, synthesize_response=True)
