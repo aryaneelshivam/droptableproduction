@@ -49,9 +49,11 @@ if tab == "Local file":
 	#Check is file is uploaded or not
 	if uploaded_file is None:
 		st.info("Upload a .csv or .xlsx spreadsheet file to continue", icon="ℹ️")
-        if uploaded_file is not None:
+        elif uploaded_file is not None:
 		df = pd.read_csv(uploaded_file, encoding='latin-1')
                 querydata = PandasQueryEngine(df=df, verbose=True, synthesize_response=True)
+
+
 		
 if tab == "google sheets":
 	st.write("Google Sheets")
