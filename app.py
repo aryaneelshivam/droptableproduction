@@ -59,6 +59,34 @@ if tab == "Airtable":
 if tab == "Snowflake":
 	st.write("Snowflake")
 
+# Columns for two sections
+col1, col2 = st.columns(2)
+with col1:
+    with st.expander("👆 Select your desired tone of output."):
+        st.write("Sample")
 
+with col2:
+    with st.expander("🔗 Connect your data to a data source."):
+        st.write("Sample")
+
+col3, col4 = st.columns(2)
+with col3:
+    with st.expander("🔍 Ask questions and query out results."):
+        st.write("Sample")
+        user_input = st.text_area("Enter your input 💬", placeholder="Enter your question/query")  
+        enter_button = st.button("Enter ⚡", use_container_width=True, type="primary")
+        if enter_button:
+                if user_input:
+                    with st.spinner("Generating answer..."):
+                        conv = querydata.query(user_input)
+
+with col4:
+    with st.expander("👀 Analyse charts and graphs visually."):
+        st.write("Sample")
+        output = st.text_area("Your generated output 🎉", placeholder="The output will be displayed here", value=conv if 'conv' in locals() else "")
+        generate = st.button("Generate AI report ⚡", use_container_width=True)
+
+st.write(" ")
+#tab1, tab2 = st.tabs(["Generate AI report 🔄", "Manual plotting 🖐"])
 
 
