@@ -44,7 +44,7 @@ st.sidebar.caption('If you dont have a private use-key, then get one and keep it
 
 # Data source selection
 tab1, tab2, tab3, tab4 = st.tabs(["Local file", "Google sheets", "Airtable", "Snowflake"])
-if tab == "Local file":
+with tab1:
     uploaded_file = st.sidebar.file_uploader("Choose a file 📂", type=["csv"])
     if uploaded_file is not None:
         df = pd.read_csv(uploaded_file, encoding='latin-1')
@@ -78,12 +78,12 @@ if tab == "Local file":
 
         st.write(" ")
         
-if tab == "google sheets":
+with tab2:
     st.write("Google Sheets")
 
-if tab == "Airtable":
+with tab3:
     st.write("Airtable")
         
-if tab == "Snowflake":
+with tab4:
     st.write("Snowflake")
 
