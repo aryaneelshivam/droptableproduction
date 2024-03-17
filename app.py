@@ -54,8 +54,7 @@ with tab1:
 		with col1:
 			with st.expander("👆 Select your desired tone of output."):
 				st.write("Sample")
-
-        	with col2:
+		with col2:
 			with st.expander("🔗 Connect your data to a data source."):
 				st.write("Sample")
 
