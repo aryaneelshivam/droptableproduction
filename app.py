@@ -48,45 +48,44 @@ if tab == "Local file":
     uploaded_file = st.sidebar.file_uploader("Choose a file 📂", type=["csv"])
     if uploaded_file is not None:
         df = pd.read_csv(uploaded_file, encoding='latin-1')
-	querydata = PandasQueryEngine(df=df, verbose=True, synthesize_response=True)
-    # Columns for two sections
-    col1, col2 = st.columns(2)
-    with col1:
-	    with st.expander("👆 Select your desired tone of output."):
-		    st.write("Sample")
+        querydata = PandasQueryEngine(df=df, verbose=True, synthesize_response=True)
+        # Columns for two sections
+        col1, col2 = st.columns(2)
+        with col1:
+            with st.expander("👆 Select your desired tone of output."):
+                st.write("Sample")
 
-    with col2:
-	    with st.expander("🔗 Connect your data to a data source."):
-		    st.write("Sample")
+        with col2:
+            with st.expander("🔗 Connect your data to a data source."):
+                st.write("Sample")
 
-    col3, col4 = st.columns(2)
-    with col3:
-	    with st.expander("🔍 Ask questions and query out results."):
-		    st.write("Sample")
-            user_input = st.text_area("Enter your input 💬", placeholder="Enter your question/query")  
-            enter_button = st.button("Enter ⚡", use_container_width=True, type="primary")
-            if enter_button:
-		    if user_input:
-			    with st.spinner("Generating answer..."):
-				    conv = querydata.query(user_input)
+        col3, col4 = st.columns(2)
+        with col3:
+            with st.expander("🔍 Ask questions and query out results."):
+                st.write("Sample")
+                user_input = st.text_area("Enter your input 💬", placeholder="Enter your question/query")  
+                enter_button = st.button("Enter ⚡", use_container_width=True, type="primary")
+                if enter_button:
+                    if user_input:
+                        with st.spinner("Generating answer..."):
+                            conv = querydata.query(user_input)
 
-    with col4:
-	    with st.expander("👀 Analyse charts and graphs visually."):
-		    st.write("Sample")
-            output = st.text_area("Your generated output 🎉", placeholder="The output will be displayed here", value=conv if 'conv' in locals() else "")
-            generate = st.button("Generate AI report ⚡", use_container_width=True)
+        with col4:
+            with st.expander("👀 Analyse charts and graphs visually."):
+                st.write("Sample")
+                output = st.text_area("Your generated output 🎉", placeholder="The output will be displayed here", value=conv if 'conv' in locals() else "")
+                generate = st.button("Generate AI report ⚡", use_container_width=True)
 
-    st.write(" ")
-	    
+        st.write(" ")
+        
 if tab == "google sheets":
-	st.write("Google Sheets")
+    st.write("Google Sheets")
 
 if tab == "Airtable":
-	st.write("Airtable")
-		
+    st.write("Airtable")
+        
 if tab == "Snowflake":
-	st.write("Snowflake")
+    st.write("Snowflake")
 
 #tab1, tab2 = st.tabs(["Generate AI report 🔄", "Manual plotting 🖐"])
-
 
