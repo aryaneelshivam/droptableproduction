@@ -36,23 +36,6 @@ st.title(":blue[Drop]Table")
 # Data source selection
 tab = ui.tabs(options=['Local file', 'Google sheets', 'Airtable', 'Snowflake'], default_value='Local file', key="select")
 
-#header ke niche
-col1, col2 = st.columns(2)
-with col1:
-	with st.expander("👆 Select your desired tone of output."):
-		st.write("Sample")
-
-with col2:
-	with st.expander("🔗 Connect your data to a data source."):
-		st.write("Sample")
-col3, col4 = st.columns(2)
-with col3:
-	with st.expander("🔍 Ask questions and query out results."):
-		st.write("Sample")
-with col4:
-	with st.expander("👀 Analyse charts and graphs visually."):
-		st.write("Sample")
-
 st.sidebar.write("Use DropTables' highly customized and fine-tuned **Generative-AI** features to build data analytics visualization dashboards.")
 
 	
