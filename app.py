@@ -75,8 +75,6 @@ with tab1:
                 st.write("Sample")
             output = st.text_area("Your generated output 🎉", placeholder="The output will be displayed here", value=conv if 'conv' in locals() else "")
             generate = st.button("Generate AI report ⚡", use_container_width=True)
-
-        st.write(" ")
         
 with tab2:
     st.write("Google Sheets")
