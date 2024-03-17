@@ -50,7 +50,7 @@ with tab1:
 		df = pd.read_csv(uploaded_file, encoding='latin-1')
 		querydata = PandasQueryEngine(df=df, verbose=True, synthesize_response=True)
        		# Columns for two sections
-        	col1, col2 = st.columns(2)
+		col1, col2 = st.columns(2)
         	with col1:
 			with st.expander("👆 Select your desired tone of output."):
                 	st.write("Sample")
