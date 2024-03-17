@@ -47,6 +47,11 @@ tab = ui.tabs(options=['Local file', 'Google sheets', 'Airtable', 'Snowflake'], 
 if tab == "Local file":
 	uploaded_file = st.sidebar.file_uploader("Choose a file 📂", type=["csv"])
 	#Check is file is uploaded or not
+	if uploaded_file is None:
+		st.info("Upload a .csv or .xlsx spreadsheet file to continue", icon="ℹ️")
+        elif uploaded_file is not None:
+		df = pd.read_csv(uploaded_file, encoding='latin-1')
+                querydata = PandasQueryEngine(df=df, verbose=True, synthesize_response=True)
 		
 if tab == "google sheets":
 	st.write("Google Sheets")
@@ -74,11 +79,6 @@ with col3:
         user_input = st.text_area("Enter your input 💬", placeholder="Enter your question/query")  
         enter_button = st.button("Enter ⚡", use_container_width=True, type="primary")
         if enter_button:
-            if uploaded_file is None:
-                st.info("Upload a .csv or .xlsx spreadsheet file to continue", icon="ℹ️")
-            elif uploaded_file is not None:
-                df = pd.read_csv(uploaded_file, encoding='latin-1')
-                querydata = PandasQueryEngine(df=df, verbose=True, synthesize_response=True)
                 if user_input:
                     with st.spinner("Generating answer..."):
                         conv = querydata.query(user_input)
