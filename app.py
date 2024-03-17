@@ -33,6 +33,9 @@ instruction = """\
 
 st.title(":blue[Drop]Table")
 
+# Data source selection
+tab = ui.tabs(options=['Local file', 'Google sheets', 'Airtable', 'Snowflake'], default_value='Local file', key="select")
+
 #header ke niche
 col1, col2 = st.columns(2)
 with col1:
@@ -52,14 +55,6 @@ with col4:
 
 st.sidebar.write("Use DropTables' highly customized and fine-tuned **Generative-AI** features to build data analytics visualization dashboards.")
 
-#Select temperature of GoogleGenAI
-tabselect = ui.tabs(options=['Creative', 'Medium', 'Precise'], default_value='Medium', key="temperature")
-if tabselect == "Creative":
-	temp = 0.8
-elif tabselect == "Medium":
-	temp = 0.5
-elif tabselect == "Precise":
-	temp = 0.2
 	
 #sidebar initial elements
 title = st.sidebar.text_input('Enter your use-key', placeholder="Enter your private use-key",key="placeholder", type="password")
@@ -73,8 +68,6 @@ with st.sidebar:
     icons=['eye', 'eye-slash'], 
     menu_icon=None, default_index=1, orientation="horizontal")
 	
-tab = ui.tabs(options=['Local file', 'Google sheets', 'Airtable', 'Snowflake'], default_value='Local file', key="select")
-
 
 if tab == "Local file":
 
