@@ -45,13 +45,11 @@ st.sidebar.caption('If you dont have a private use-key, then get one and keep it
 # Data source selection
 tab = ui.tabs(options=['Local file', 'Google sheets', 'Airtable', 'Snowflake'], default_value='Local file', key="select")
 if tab == "Local file":
-	uploaded_file = st.sidebar.file_uploader("Choose a file 📂", type=["csv"])
-	#Check is file is uploaded or not
-	if uploaded_file is None:
-		st.info("Upload a .csv or .xlsx spreadsheet file to continue", icon="ℹ️")
-        elif uploaded_file is not None:
-		df = pd.read_csv(uploaded_file, encoding='latin-1')
-                querydata = PandasQueryEngine(df=df, verbose=True, synthesize_response=True)		
+    uploaded_file = st.sidebar.file_uploader("Choose a file 📂", type=["csv"])
+    if uploaded_file is not None:
+        df = pd.read_csv(uploaded_file, encoding='latin-1')
+        querydata = PandasQueryEngine(df=df, verbose=True, synthesize_response=True)
+	    
 if tab == "google sheets":
 	st.write("Google Sheets")
 
