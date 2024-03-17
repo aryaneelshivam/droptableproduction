@@ -48,7 +48,7 @@ if tab == "Local file":
     uploaded_file = st.sidebar.file_uploader("Choose a file 📂", type=["csv"])
     if uploaded_file is not None:
         df = pd.read_csv(uploaded_file, encoding='latin-1')
-        querydata = PandasQueryEngine(df=df, verbose=True, synthesize_response=True)
+querydata = PandasQueryEngine(df=df, verbose=True, synthesize_response=True)
 	    
 if tab == "google sheets":
 	st.write("Google Sheets")
