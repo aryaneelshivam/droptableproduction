@@ -102,11 +102,11 @@ with tab1:
 					st.pyplot(use_container_width=True)
         
 with tab2:
-    st.write("Google Sheets")
+    st.warning("Google sheets integration is not avilable in Beta Version", icon="⚠")
 
 with tab3:
-    st.write("Airtable")
+    st.warning("Airtable integration is not avilable in Beta Version", icon="⚠")
         
 with tab4:
-    st.write("Snowflake")
+    st.warning("Snowflake integration is not avilable in Beta Version", icon="⚠")
 
