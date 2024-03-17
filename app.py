@@ -70,10 +70,8 @@ with st.sidebar:
 	
 
 if tab == "Local file":
-
-	with card_container():
-		uploaded_file = st.file_uploader("Choose a file 📂", type=["csv"])
-		#Check is file is uploaded or not
+	uploaded_file = st.sidebar.file_uploader("Choose a file 📂", type=["csv"])
+	#Check is file is uploaded or not
 	if uploaded_file is None:
 		st.info("Upload a .csv or .xlsx spreadsheet file to continue", icon="ℹ️")
 	if uploaded_file is not None:
