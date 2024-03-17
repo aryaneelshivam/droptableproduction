@@ -71,7 +71,7 @@ with tab1:
 					conv = querydata.query(user_input)
         	with col4:
 			with st.expander("👀 Analyse charts and graphs visually."):
-                	st.write("Sample")
+				st.write("Sample")
             	output = st.text_area("Your generated output 🎉", placeholder="The output will be displayed here", value=conv if 'conv' in locals() else "")
             	generate = st.button("Generate AI report ⚡", use_container_width=True)
         
