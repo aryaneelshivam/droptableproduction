@@ -33,6 +33,15 @@ instruction = """\
 
 st.title(":blue[Drop]Table")
 
+st.sidebar.write("Use DropTables' highly customized and fine-tuned **Generative-AI** features to build data analytics visualization dashboards.")
+
+	
+#sidebar initial elements
+title = st.sidebar.text_input('Enter your use-key', placeholder="Enter your private use-key",key="placeholder", type="password")
+buybutton = st.sidebar.link_button("Get your Key", "https://teenscript.substack.com/", type="primary", help="Purchase your private use-key to work with droptable.", use_container_width=True)
+st.sidebar.caption('If you dont have a private use-key, then get one and keep it safe.')
+	
+
 # Data source selection
 tab = ui.tabs(options=['Local file', 'Google sheets', 'Airtable', 'Snowflake'], default_value='Local file', key="select")
 if tab == "Local file":
@@ -47,15 +56,6 @@ if tab == "Airtable":
 		
 if tab == "Snowflake":
 	st.write("Snowflake")
-
-st.sidebar.write("Use DropTables' highly customized and fine-tuned **Generative-AI** features to build data analytics visualization dashboards.")
-
-	
-#sidebar initial elements
-title = st.sidebar.text_input('Enter your use-key', placeholder="Enter your private use-key",key="placeholder", type="password")
-buybutton = st.sidebar.link_button("Get your Key", "https://teenscript.substack.com/", type="primary", help="Purchase your private use-key to work with droptable.", use_container_width=True)
-st.sidebar.caption('If you dont have a private use-key, then get one and keep it safe.')
-	
 
 # Columns for two sections
 col1, col2 = st.columns(2)
