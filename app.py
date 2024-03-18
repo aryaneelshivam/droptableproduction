@@ -174,40 +174,40 @@ with tab1:
 							fig = px.scatter(df_sort, x=x_axis3, y=y_axis3, width=1240)
 							st.plotly_chart(fig)
 							st.toast('Another victory', icon='🥇')
-                		elif chart_type == "Pie Chart":
+				elif chart_type == "Pie Chart":
 					selected_column = st.sidebar.selectbox("Select Column for Pie Chart", df.columns, key=f"pie_column_{chart_type}", index=None)
-                    			st.sidebar.divider()
-                    			with st.spinner("Generating chart..."):
+					st.sidebar.divider()
+					with st.spinner("Generating chart..."):
 						fig = px.pie(df, names=selected_column, title=f'Pie Chart for {selected_column}', width=1240)
-                        			st.plotly_chart(fig)
-                    				st.toast('Winning streak!', icon='🏆')
-                		elif chart_type == "Stacked Bar Chart":
+						st.plotly_chart(fig)
+						st.toast('Winning streak!', icon='🏆')
+				elif chart_type == "Stacked Bar Chart":
 					st.sidebar.write("Select X-axis and Y-axis for Bubble Chart")
-                    			x_axis4 = st.sidebar.selectbox("Select for Stacked Bar Chart - X", df.columns, key=f"stacked_x_{chart_type}", index=None)
-                    			y_axis4 = st.sidebar.selectbox("Select for Stacked Bar Chart - Y", df.columns, key=f"stacked_y_{chart_type}", index=None)
-                    			color = st.sidebar.selectbox("Select Color Column", df.columns, key=f"stacked_size_{chart_type}", index=None)
-                    			st.sidebar.divider()
-                    			if x_axis4 is None or y_axis4 is None or color is None:
+					x_axis4 = st.sidebar.selectbox("Select for Stacked Bar Chart - X", df.columns, key=f"stacked_x_{chart_type}", index=None)
+					y_axis4 = st.sidebar.selectbox("Select for Stacked Bar Chart - Y", df.columns, key=f"stacked_y_{chart_type}", index=None)
+					color = st.sidebar.selectbox("Select Color Column", df.columns, key=f"stacked_size_{chart_type}", index=None)
+					st.sidebar.divider()
+					if x_axis4 is None or y_axis4 is None or color is None:
 						st.error("Either cant build relationship with given columns or Column(s) are empty")
-                    			else:
+					else:
 						with st.spinner("Generating chart..."):
 							df_sort = df.sort_values(by=x_axis4)
-                            				fig = px.bar(df_sort, x=x_axis4, y=y_axis4, color=color, title=f'Stacked Bar Chart for {x_axis4}, {y_axis4}, {color}', width=1240)
-                            				st.plotly_chart(fig)
-                       					st.toast('Bubbles and soap!', icon='🧼')
-                		elif chart_type == "Dot Plot":
+							fig = px.bar(df_sort, x=x_axis4, y=y_axis4, color=color, title=f'Stacked Bar Chart for {x_axis4}, {y_axis4}, {color}', width=1240)
+							st.plotly_chart(fig)
+							st.toast('Bubbles and soap!', icon='🧼')
+				elif chart_type == "Dot Plot":
 					st.sidebar.write("Select X-axis and Y-axis for Dot Plot Chart")
-                    			x_axis5 = st.sidebar.selectbox("Select for Dot Plot Chart - X", df.columns, key=f"dot_x_{chart_type}", index=None)
-                    			y_axis5 = st.sidebar.selectbox("Select for Dot Plot Chart - Y", df.columns, key=f"dot_y_{chart_type}", index=None)
-                    			st.sidebar.divider()
-                    			if x_axis5 is None or y_axis5 is None:
+					x_axis5 = st.sidebar.selectbox("Select for Dot Plot Chart - X", df.columns, key=f"dot_x_{chart_type}", index=None)
+					y_axis5 = st.sidebar.selectbox("Select for Dot Plot Chart - Y", df.columns, key=f"dot_y_{chart_type}", index=None)
+					st.sidebar.divider()
+					if x_axis5 is None or y_axis5 is None:
 						st.error("Either cant build relationship with given columns or Column(s) are empty")
-                    			else:
+					else:
 						with st.spinner("Generating chart..."):
 							df_sort = df.sort_values(by=x_axis5)
-                            				fig = px.scatter(df_sort, x=x_axis5, y=y_axis5, title=f'Dot Plot for {x_axis5} and {y_axis5}', width=1240)
-                            				st.plotly_chart(fig)
-                        				st.toast('Hooray!', icon='🎉')
+							fig = px.scatter(df_sort, x=x_axis5, y=y_axis5, title=f'Dot Plot for {x_axis5} and {y_axis5}', width=1240)
+							st.plotly_chart(fig)
+							st.toast('Hooray!', icon='🎉')
         
 with tab2:
     st.warning("Google sheets integration is not avilable in Beta Version", icon="⚠")
