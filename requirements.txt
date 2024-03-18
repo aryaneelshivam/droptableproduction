@@ -11,3 +11,5 @@ openai
 ipython
 streamlit-option-menu
 polars
+plotly
+
