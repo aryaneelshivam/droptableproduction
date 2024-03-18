@@ -113,7 +113,7 @@ with tab1:
 					color = st.sidebar.selectbox("Select Colour Column", df.columns, key=f"area_c_{chart_type}", index=None)
 					line = st.sidebar.selectbox("Select Line Column", df.columns, key=f"area_l_{chart_type}", index=None)
 					st.sidebar.divider()
-                    			if x_axis is None or y_axis is None or color is None or line is None:
+					if x_axis is None or y_axis is None or color is None or line is None:
 						st.error("Either cant build relationship with given columns or Column(s) are empty")
 					else:
 						with st.spinner("Generating chart..."):
