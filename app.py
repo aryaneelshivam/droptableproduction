@@ -118,7 +118,7 @@ with tab1:
 					else:
 						with st.spinner("Generating chart..."):
 							df_sort = df.sort_values(by=x_axis)
-                            				fig = px.area(df_sort, x=x_axis, y=y_axis, color=color, line_group=line,title="Stacked filled area chart comparing sales with product line against order dates.", width=1240)
+							fig = px.area(df_sort, x=x_axis, y=y_axis, color=color, line_group=line,title="Stacked filled area chart comparing sales with product line against order dates.", width=1240)
                             				st.plotly_chart(fig)
                         				st.toast('Graph visualized!', icon='🎉')
                     
