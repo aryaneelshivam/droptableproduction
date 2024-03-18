@@ -119,8 +119,8 @@ with tab1:
 						with st.spinner("Generating chart..."):
 							df_sort = df.sort_values(by=x_axis)
 							fig = px.area(df_sort, x=x_axis, y=y_axis, color=color, line_group=line,title="Stacked filled area chart comparing sales with product line against order dates.", width=1240)
-                            				st.plotly_chart(fig)
-                        				st.toast('Graph visualized!', icon='🎉')
+							st.plotly_chart(fig)
+							st.toast('Graph visualized!', icon='🎉')
                     
                 		elif chart_type == "Histogram":
 					st.sidebar.write("Select X-axis and Y-axis for Histogram Chart")
