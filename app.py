@@ -121,7 +121,6 @@ with tab1:
 							fig = px.area(df_sort, x=x_axis, y=y_axis, color=color, line_group=line,title="Stacked filled area chart comparing sales with product line against order dates.", width=1240)
 							st.plotly_chart(fig)
 							st.toast('Graph visualized!', icon='🎉')
-                    
                 		elif chart_type == "Histogram":
 					st.sidebar.write("Select X-axis and Y-axis for Histogram Chart")
                     			x_axis = st.sidebar.selectbox("Select for Bar Chart - X", df.columns, key=f"hist_x_{chart_type}", index=None)
