@@ -136,17 +136,17 @@ with tab1:
 							st.toast('Hooray!', icon='🎉')
 				elif chart_type == "Bar Chart":
 					st.sidebar.write("Select X-axis and Y-axis for Bar Chart")
-                    			x_axis = st.sidebar.selectbox("Select for Bar Chart - X", df.columns, key=f"bar_x_{chart_type}", index=None)
-                    			y_axis = st.sidebar.selectbox("Select for Bar Chart - Y", df.columns, key=f"bar_y_{chart_type}", index=None)
-                    			st.sidebar.divider()
-                    			if x_axis is None or y_axis is None:
+					x_axis = st.sidebar.selectbox("Select for Bar Chart - X", df.columns, key=f"bar_x_{chart_type}", index=None)
+					y_axis = st.sidebar.selectbox("Select for Bar Chart - Y", df.columns, key=f"bar_y_{chart_type}", index=None)
+					st.sidebar.divider()
+					if x_axis is None or y_axis is None:
 						st.error("Either cant build relationship with given columns or Column(s) are empty")
-                   			else:
+					else:
 						with st.spinner("Generating chart..."):
-                            			df_sort = df.sort_values(by=x_axis)
-                            			fig = px.bar(df_sort, x=x_axis, y=y_axis, width=1240)
-                            			st.plotly_chart(fig)
-                        			st.toast('We did it!', icon='🎉')
+							df_sort = df.sort_values(by=x_axis)
+                            				fig = px.bar(df_sort, x=x_axis, y=y_axis, width=1240)
+                            				st.plotly_chart(fig)
+	                        			st.toast('We did it!', icon='🎉')
 						
                 		elif chart_type == "Line Chart":
 					st.sidebar.write("Select X-axis and Y-axis for Line Chart")
