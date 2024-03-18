@@ -108,7 +108,7 @@ with tab1:
 				st.subheader(f"{chart_type} Visualization")
 				if chart_type == "Area Chart":
 					st.sidebar.write("Select attributes for Filled Area Chart")
-                    			x_axis = st.sidebar.selectbox("Select for Area Chart - X", df.columns, key=f"area_x_{chart_type}", index=None)
+					x_axis = st.sidebar.selectbox("Select for Area Chart - X", df.columns, key=f"area_x_{chart_type}", index=None)
                    			y_axis = st.sidebar.selectbox("Select for Area Chart - Y", df.columns, key=f"area_y_{chart_type}", index=None)
                     			color = st.sidebar.selectbox("Select Colour Column", df.columns, key=f"area_c_{chart_type}", index=None)
                     			line = st.sidebar.selectbox("Select Line Column", df.columns, key=f"area_l_{chart_type}", index=None)
