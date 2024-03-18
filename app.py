@@ -12,6 +12,8 @@ from llama_index.core import SimpleDirectoryReader
 import openai
 from IPython.display import Markdown, display
 from streamlit_option_menu import option_menu
+import plotly.express as px
+import time 
 #from prompts import new_prompt, instruction_str, context
 
 
