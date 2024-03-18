@@ -102,6 +102,113 @@ with tab1:
 					exec(str(plot))
 					st.set_option('deprecation.showPyplotGlobalUse', False)
 					st.pyplot(use_container_width=True)
+		if manual:
+			chart_types = st.multiselect("Select Chart Types", ["Bar Chart", "Stacked Bar Chart","Line Chart", "Scatter Plot", "Pie Chart", "Dot Plot", "Histogram", "Area Chart"])
+			for chart_type in chart_types:
+				st.subheader(f"{chart_type} Visualization")
+				if chart_type == "Area Chart":
+					st.sidebar.write("Select attributes for Filled Area Chart")
+                    			x_axis = st.sidebar.selectbox("Select for Area Chart - X", df.columns, key=f"area_x_{chart_type}", index=None)
+                   			y_axis = st.sidebar.selectbox("Select for Area Chart - Y", df.columns, key=f"area_y_{chart_type}", index=None)
+                    			color = st.sidebar.selectbox("Select Colour Column", df.columns, key=f"area_c_{chart_type}", index=None)
+                    			line = st.sidebar.selectbox("Select Line Column", df.columns, key=f"area_l_{chart_type}", index=None)
+                    			st.sidebar.divider()
+                    			if x_axis is None or y_axis is None or color is None or line is None:
+						st.error("Either cant build relationship with given columns or Column(s) are empty")
+					else:
+						with st.spinner("Generating chart..."):
+							df_sort = df.sort_values(by=x_axis)
+                            				fig = px.area(df_sort, x=x_axis, y=y_axis, color=color, line_group=line,title="Stacked filled area chart comparing sales with product line against order dates.", width=1240)
+                            				st.plotly_chart(fig)
+                        				st.toast('Graph visualized!', icon='🎉')
+                    
+                		elif chart_type == "Histogram":
+					st.sidebar.write("Select X-axis and Y-axis for Histogram Chart")
+                    			x_axis = st.sidebar.selectbox("Select for Bar Chart - X", df.columns, key=f"hist_x_{chart_type}", index=None)
+                    			color = st.sidebar.selectbox("Select Colour Column", df.columns, key=f"hist_y_{chart_type}", index=None)
+                    			st.sidebar.divider()
+                    			if x_axis is None or color is None:
+						st.error("Either cant build relationship with given columns or Column(s) are empty")
+                    			else:
+						with st.spinner("Generating chart..."):
+							df_sort = df.sort_values(by=x_axis)
+                            				fig = px.histogram(df_sort, x=x_axis, color=color, title='Order Status Distribution Over Time', width=1240)
+                            				st.plotly_chart(fig)
+                        				st.toast('Hooray!', icon='🎉')
+                		elif chart_type == "Bar Chart":
+					st.sidebar.write("Select X-axis and Y-axis for Bar Chart")
+                    			x_axis = st.sidebar.selectbox("Select for Bar Chart - X", df.columns, key=f"bar_x_{chart_type}", index=None)
+                    			y_axis = st.sidebar.selectbox("Select for Bar Chart - Y", df.columns, key=f"bar_y_{chart_type}", index=None)
+                    			st.sidebar.divider()
+                    			if x_axis is None or y_axis is None:
+						st.error("Either cant build relationship with given columns or Column(s) are empty")
+                   			else:
+						with st.spinner("Generating chart..."):
+                            			df_sort = df.sort_values(by=x_axis)
+                            			fig = px.bar(df_sort, x=x_axis, y=y_axis, width=1240)
+                            			st.plotly_chart(fig)
+                        			st.toast('We did it!', icon='🎉')
+						
+                		elif chart_type == "Line Chart":
+					st.sidebar.write("Select X-axis and Y-axis for Line Chart")
+                    			x_axis1 = st.sidebar.selectbox("Select for Line Chart - X", df.columns, key=f"line_x_{chart_type}", index=None)
+                    			y_axis1 = st.sidebar.selectbox("Select for Line Chart - Y", df.columns, key=f"line_y_{chart_type}", index=None)
+                    			st.sidebar.divider()
+                    			if x_axis1 is None or y_axis1 is None:
+						st.error("Either cant build relationship with given columns or Column(s) are empty")
+                    			else:
+						with st.spinner("Generating chart..."):
+							df_sort = df.sort_values(by=x_axis1)
+                            				fig = px.line(df_sort, x=x_axis1, y=y_axis1, width=1240)
+                            				st.plotly_chart(fig)
+                        				st.toast('Hooray!', icon='🎉')
+                		elif chart_type == "Scatter Plot":
+					st.sidebar.write("Select X-axis and Y-axis for Scatter Plot Chart")
+                    			x_axis3 = st.sidebar.selectbox("Select for Scatter Plot - X", df.columns, key=f"scatter_x_{chart_type}", index=None)
+                    			y_axis3 = st.sidebar.selectbox("Select for Scatter Plot - Y", df.columns, key=f"scatter_y_{chart_type}", index=None)
+                    			st.sidebar.divider()
+                    			if x_axis3 is None or y_axis3 is None:
+						st.error("Either cant build relationship with given columns or Column(s) are empty")
+                    			else:
+						with st.spinner("Generating chart..."):
+							df_sort = df.sort_values(by=x_axis3)
+                            				fig = px.scatter(df_sort, x=x_axis3, y=y_axis3, width=1240)
+                            				st.plotly_chart(fig)
+                        				st.toast('Another victory', icon='🥇')
+                		elif chart_type == "Pie Chart":
+					selected_column = st.sidebar.selectbox("Select Column for Pie Chart", df.columns, key=f"pie_column_{chart_type}", index=None)
+                    			st.sidebar.divider()
+                    			with st.spinner("Generating chart..."):
+						fig = px.pie(df, names=selected_column, title=f'Pie Chart for {selected_column}', width=1240)
+                        			st.plotly_chart(fig)
+                    				st.toast('Winning streak!', icon='🏆')
+                		elif chart_type == "Stacked Bar Chart":
+					st.sidebar.write("Select X-axis and Y-axis for Bubble Chart")
+                    			x_axis4 = st.sidebar.selectbox("Select for Stacked Bar Chart - X", df.columns, key=f"stacked_x_{chart_type}", index=None)
+                    			y_axis4 = st.sidebar.selectbox("Select for Stacked Bar Chart - Y", df.columns, key=f"stacked_y_{chart_type}", index=None)
+                    			color = st.sidebar.selectbox("Select Color Column", df.columns, key=f"stacked_size_{chart_type}", index=None)
+                    			st.sidebar.divider()
+                    			if x_axis4 is None or y_axis4 is None or color is None:
+						st.error("Either cant build relationship with given columns or Column(s) are empty")
+                    			else:
+						with st.spinner("Generating chart..."):
+							df_sort = df.sort_values(by=x_axis4)
+                            				fig = px.bar(df_sort, x=x_axis4, y=y_axis4, color=color, title=f'Stacked Bar Chart for {x_axis4}, {y_axis4}, {color}', width=1240)
+                            				st.plotly_chart(fig)
+                       					st.toast('Bubbles and soap!', icon='🧼')
+                		elif chart_type == "Dot Plot":
+					st.sidebar.write("Select X-axis and Y-axis for Dot Plot Chart")
+                    			x_axis5 = st.sidebar.selectbox("Select for Dot Plot Chart - X", df.columns, key=f"dot_x_{chart_type}", index=None)
+                    			y_axis5 = st.sidebar.selectbox("Select for Dot Plot Chart - Y", df.columns, key=f"dot_y_{chart_type}", index=None)
+                    			st.sidebar.divider()
+                    			if x_axis5 is None or y_axis5 is None:
+						st.error("Either cant build relationship with given columns or Column(s) are empty")
+                    			else:
+						with st.spinner("Generating chart..."):
+							df_sort = df.sort_values(by=x_axis5)
+                            				fig = px.scatter(df_sort, x=x_axis5, y=y_axis5, title=f'Dot Plot for {x_axis5} and {y_axis5}', width=1240)
+                            				st.plotly_chart(fig)
+                        				st.toast('Hooray!', icon='🎉')
         
 with tab2:
     st.warning("Google sheets integration is not avilable in Beta Version", icon="⚠")
