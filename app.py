@@ -120,7 +120,7 @@ with tab1:
 					else:
 						with st.spinner("Generating chart..."):
 							df_sort = df.sort_values(by=x_axis)
-							fig = px.area(df_sort, x=x_axis, y=y_axis, color=color, line_group=line,title="Stacked filled area chart comparing sales with product line against order dates.", width=1240)
+							fig = px.area(df_sort, x=x_axis, y=y_axis, color=color, line_group=line,title="Stacked filled area chart comparing sales with product line against order dates.")
 							st.plotly_chart(fig)
 							st.toast('Graph visualized!', icon='🎉')
 				elif chart_type == "Histogram":
@@ -133,7 +133,7 @@ with tab1:
 					else:
 						with st.spinner("Generating chart..."):
 							df_sort = df.sort_values(by=x_axis)
-							fig = px.histogram(df_sort, x=x_axis, color=color, title='Order Status Distribution Over Time', width=1240)
+							fig = px.histogram(df_sort, x=x_axis, color=color, title='Order Status Distribution Over Time')
 							st.plotly_chart(fig)
 							st.toast('Hooray!', icon='🎉')
 				elif chart_type == "Bar Chart":
@@ -146,7 +146,7 @@ with tab1:
 					else:
 						with st.spinner("Generating chart..."):
 							df_sort = df.sort_values(by=x_axis)
-							fig = px.bar(df_sort, x=x_axis, y=y_axis, width=1240)
+							fig = px.bar(df_sort, x=x_axis, y=y_axis)
 							st.plotly_chart(fig)
 							st.toast('We did it!', icon='🎉')
 						
@@ -160,7 +160,7 @@ with tab1:
 					else:
 						with st.spinner("Generating chart..."):
 							df_sort = df.sort_values(by=x_axis1)
-							fig = px.line(df_sort, x=x_axis1, y=y_axis1, width=1240)
+							fig = px.line(df_sort, x=x_axis1, y=y_axis1)
 							st.plotly_chart(fig)
 							st.toast('Hooray!', icon='🎉')
 				elif chart_type == "Scatter Plot":
@@ -173,14 +173,14 @@ with tab1:
 					else:
 						with st.spinner("Generating chart..."):
 							df_sort = df.sort_values(by=x_axis3)
-							fig = px.scatter(df_sort, x=x_axis3, y=y_axis3, width=1240)
+							fig = px.scatter(df_sort, x=x_axis3, y=y_axis3)
 							st.plotly_chart(fig)
 							st.toast('Another victory', icon='🥇')
 				elif chart_type == "Pie Chart":
 					selected_column = st.sidebar.selectbox("Select Column for Pie Chart", df.columns, key=f"pie_column_{chart_type}", index=None)
 					st.sidebar.divider()
 					with st.spinner("Generating chart..."):
-						fig = px.pie(df, names=selected_column, title=f'Pie Chart for {selected_column}', width=1240)
+						fig = px.pie(df, names=selected_column, title=f'Pie Chart for {selected_column}')
 						st.plotly_chart(fig)
 						st.toast('Winning streak!', icon='🏆')
 				elif chart_type == "Stacked Bar Chart":
@@ -194,7 +194,7 @@ with tab1:
 					else:
 						with st.spinner("Generating chart..."):
 							df_sort = df.sort_values(by=x_axis4)
-							fig = px.bar(df_sort, x=x_axis4, y=y_axis4, color=color, title=f'Stacked Bar Chart for {x_axis4}, {y_axis4}, {color}', width=1240)
+							fig = px.bar(df_sort, x=x_axis4, y=y_axis4, color=color, title=f'Stacked Bar Chart for {x_axis4}, {y_axis4}, {color}')
 							st.plotly_chart(fig)
 							st.toast('Bubbles and soap!', icon='🧼')
 				elif chart_type == "Dot Plot":
@@ -207,7 +207,7 @@ with tab1:
 					else:
 						with st.spinner("Generating chart..."):
 							df_sort = df.sort_values(by=x_axis5)
-							fig = px.scatter(df_sort, x=x_axis5, y=y_axis5, title=f'Dot Plot for {x_axis5} and {y_axis5}', width=1240)
+							fig = px.scatter(df_sort, x=x_axis5, y=y_axis5, title=f'Dot Plot for {x_axis5} and {y_axis5}')
 							st.plotly_chart(fig)
 							st.toast('Hooray!', icon='🎉')
         
