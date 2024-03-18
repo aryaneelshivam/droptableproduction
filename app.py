@@ -65,7 +65,7 @@ with tab1:
 		with col3:
 			with st.expander("🔍 Ask questions and query out results."):
 				st.write("Sample")
-			user_input = st.text_area("Enter your input 💬", placeholder="Enter your question/query")  
+			user_input = st.text_area("Enter your input 💬", placeholder="Enter your question/query", height=200)  
 			enter_button = st.button("Enter ⚡", use_container_width=True, type="primary")
 			if enter_button:
 				if user_input:
@@ -74,7 +74,7 @@ with tab1:
 		with col4:
 			with st.expander("👀 Analyse charts and graphs visually."):
 				st.write("Sample")
-			output = st.text_area("Your generated output 🎉", placeholder="The output will be displayed here", value=conv if 'conv' in locals() else "")
+			output = st.text_area("Your generated output 🎉", placeholder="The output will be displayed here", value=conv if 'conv' in locals() else "", height=200)
 			generate = st.button("Generate AI report ⚡", use_container_width=True)
 			
 		if generate:
