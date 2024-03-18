@@ -110,9 +110,9 @@ with tab1:
 					st.sidebar.write("Select attributes for Filled Area Chart")
 					x_axis = st.sidebar.selectbox("Select for Area Chart - X", df.columns, key=f"area_x_{chart_type}", index=None)
 					y_axis = st.sidebar.selectbox("Select for Area Chart - Y", df.columns, key=f"area_y_{chart_type}", index=None)
-                    			color = st.sidebar.selectbox("Select Colour Column", df.columns, key=f"area_c_{chart_type}", index=None)
-                    			line = st.sidebar.selectbox("Select Line Column", df.columns, key=f"area_l_{chart_type}", index=None)
-                    			st.sidebar.divider()
+					color = st.sidebar.selectbox("Select Colour Column", df.columns, key=f"area_c_{chart_type}", index=None)
+					line = st.sidebar.selectbox("Select Line Column", df.columns, key=f"area_l_{chart_type}", index=None)
+					st.sidebar.divider()
                     			if x_axis is None or y_axis is None or color is None or line is None:
 						st.error("Either cant build relationship with given columns or Column(s) are empty")
 					else:
