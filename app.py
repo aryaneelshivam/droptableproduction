@@ -75,7 +75,7 @@ with tab1:
 			with st.expander("👀 Analyse charts and graphs visually."):
 				st.write("Sample")
 			output = st.text_area("Your generated output 🎉", placeholder="The output will be displayed here", value=conv if 'conv' in locals() else "")
-			generate = st.button("Generate AI report ⚡")
+			generate = st.button("Generate AI report ⚡", use_container_width=True)
 			
 		if generate:
 			query_engine = PandasQueryEngine(df=df, verbose=True, synthesize_response=True)
