@@ -134,7 +134,7 @@ with tab1:
 							fig = px.histogram(df_sort, x=x_axis, color=color, title='Order Status Distribution Over Time', width=1240)
 							st.plotly_chart(fig)
 							st.toast('Hooray!', icon='🎉')
-                		elif chart_type == "Bar Chart":
+				elif chart_type == "Bar Chart":
 					st.sidebar.write("Select X-axis and Y-axis for Bar Chart")
                     			x_axis = st.sidebar.selectbox("Select for Bar Chart - X", df.columns, key=f"bar_x_{chart_type}", index=None)
                     			y_axis = st.sidebar.selectbox("Select for Bar Chart - Y", df.columns, key=f"bar_y_{chart_type}", index=None)
