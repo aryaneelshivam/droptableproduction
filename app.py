@@ -92,7 +92,7 @@ if tab == "Local file":
 					response1 = query_engine.query("Analyse the dataset, and drive valuable insights and write a detailed report, the different visualizations, different insightfu; indicators etc.")
 			if response1:
 				with st.spinner("Generating visualizations..."):
-					plot = query_engine.query("Use the dataset and generate python executable code to plot charts like barchart, histogram, pie-chart, linechart and scatter plot. Ensure the code is structured to plot different types of charts. Use subplots. Code only.")
+					plot = query_engine.query("Use the dataset and generate python executable code to plot charts like barchart, histogram, pie-chart, linechart and scatter plot. Ensure the code is structured to plot different types of charts. Use subplots. Code only. only expression.")
 				with card_container():
 					st.markdown(response2)
 				with card_container():
