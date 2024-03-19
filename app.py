@@ -102,9 +102,12 @@ if tab == "Local file":
 				with st.spinner("Generating plots..."):
 					code = st.code(plot, language='python')
 					st.echo(code)
-					exec(str(plot))
-					st.set_option('deprecation.showPyplotGlobalUse', False)
-					st.pyplot(use_container_width=True)
+					try:
+						exec(str(plot))
+						st.set_option('deprecation.showPyplotGlobalUse', False)
+						st.pyplot(use_container_width=True)
+					except:
+						st.error("Having trouble dusplaying generated plot")
 		if manual:
 			chart_types = st.multiselect("Select Chart Types", ["Bar Chart", "Stacked Bar Chart","Line Chart", "Scatter Plot", "Pie Chart", "Dot Plot", "Histogram", "Area Chart"])
 			for chart_type in chart_types:
