@@ -45,8 +45,9 @@ st.sidebar.caption('If you dont have a private use-key, then get one and keep it
 	
 
 # Data source selection
-tab1, tab2, tab3, tab4 = st.tabs(["Local file", "Google sheets", "Airtable", "Snowflake"])
-with tab1:
+tab = ui.tabs(options=['Local file', 'Google sheets', 'Airtable', 'Snowflake'], default_value='Local file', key="select")
+#tab1, tab2, tab3, tab4 = st.tabs(["Local file", "Google sheets", "Airtable", "Snowflake"])
+if tab == "Local file":
 	uploaded_file = st.sidebar.file_uploader("Choose a file 📂", type=["csv"])
 	if uploaded_file is None:
 		st.error("Select a data source and upload a file to continue.", icon="🚨")
@@ -211,12 +212,12 @@ with tab1:
 							st.plotly_chart(fig)
 							st.toast('Hooray!', icon='🎉')
         
-with tab2:
+if tab == "Google sheets":
     st.warning("Google sheets integration is not avilable in Beta Version", icon="⚠")
 
-with tab3:
+if tab == "Airtable":
     st.warning("Airtable integration is not avilable in Beta Version", icon="⚠")
         
-with tab4:
+if tab == "Snowflake":
     st.warning("Snowflake integration is not avilable in Beta Version", icon="⚠")
 
