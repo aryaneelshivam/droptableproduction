@@ -109,6 +109,9 @@ if tab == "Local file":
 					except:
 						st.error("Having trouble displaying generated plot")
 		if manual:
+			datatypes = st.sidebar.checkbox("List datatypes from the dataset?")
+			if datatypes:
+				st.write(df.dtypes)
 			chart_types = st.multiselect("Select Chart Types", ["Bar Chart", "Stacked Bar Chart","Line Chart", "Scatter Plot", "Pie Chart", "Dot Plot", "Histogram", "Area Chart"])
 			for chart_type in chart_types:
 				st.subheader(f"{chart_type} Visualization")
