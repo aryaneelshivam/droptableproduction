@@ -109,7 +109,7 @@ if tab == "Local file":
 					except:
 						st.error("Having trouble displaying generated plot")
 		if manual:
-			with st.expander():
+			with st.expander("Expand to see the uploaded dataframe"):
 				st.dataframe(df)
 			datatypes = st.sidebar.checkbox("List datatypes from the dataset?")
 			describe = st.sidebar.checkbox("Describe the uploaded dataset?")
